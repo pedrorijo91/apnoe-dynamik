@@ -1,38 +1,34 @@
 using Toybox.WatchUi;
+using Toybox.Graphics;
 
-class HomeView extends WatchUi.View {
+
+class HomeView extends MainLayoutView {
 	
     function initialize() {
-    	View.initialize();
+    	MainLayoutView.initialize(null, null);
     }
 
-    // Load your resources here
-    function onLayout(dc) {
-        setLayout(Rez.Layouts.MainLayout(dc));
-    }
-
-    // Called when this View is brought to the foreground. Restore
-    // the state of this View and prepare it to be shown. This includes
-    // loading resources into memory.
-    function onShow() {
-    	debug("HomeView onShow");
-    }
-
+	
     // Update the view
     function onUpdate(dc) {
-    
+    	// Call the parent onUpdate function to redraw the layout
+        MainLayoutView.onUpdate(dc);
+       
   		var textFeld;
         textFeld = View.findDrawableById("modusId");
         textFeld.setText("HOME");
         
-        // Call the parent onUpdate function to redraw the layout
-        View.onUpdate(dc);
-    }
-
-    // Called when this View is removed from the screen. Save the
-    // state of this View here. This includes freeing resources from
-    // memory.
-    function onHide() {
-    	debug("HomeView onHide");
+      	//Test Anzeige Felder
+    	var textFeldZeit;
+        textFeldZeit = View.findDrawableById("zeitId");
+        textFeldZeit.setText("1:35");
+    	
+    	var textFeldHR;
+        textFeldHR = View.findDrawableById("pulsId");
+        textFeldHR.setText("hr 106");
+    	
+    	var textFeldMeter;
+        textFeldMeter = View.findDrawableById("langId");
+        textFeldMeter.setText("25m");
     }
 }

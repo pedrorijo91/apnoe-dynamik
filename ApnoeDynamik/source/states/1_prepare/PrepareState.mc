@@ -3,15 +3,16 @@ class PrepareState extends TimedState {
 	function initialize() {
 	   	debug("Switching to Prepare State.");
 	   	
-		TimedState.initialize(training.prepareDuration);
+		TimedState.initialize(currentTraining.prepareDuration);
 		
-		// Store startTime in training
+		var view = new PrepareView(stateStartedAt, currentTraining.prepareDuration);
 		
 		WatchUi.switchToView(
-			new PrepareView(self, training),
+			view,
 			State.defaultDelegate,
 			WatchUi.SLIDE_IMMEDIATE);
 	}
+	
 	
 	function onAccept() {
     	debug("Accept pressed.  Will switch to nextStep.");
@@ -19,12 +20,6 @@ class PrepareState extends TimedState {
 		nextStep();
     }
     
-    function onUpdateTimedState(timeInState, remainingTime) {
-    	// Überschreiben der Funktion um z.B. beeps durchzuführen.
-    	if (remainingTime < 2000) {
-    		debug("BEEP");
-    	}
-	}	
     
     function nextStep() {
     	debug("NextStep.  Will switch to DiveState.");

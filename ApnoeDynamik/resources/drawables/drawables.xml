@@ -1,7 +1,10 @@
 <drawables>
-    <bitmap id="LauncherIcon" filename="Apnoe-Statik_40.png" />
+    <bitmap id="LauncherIcon" filename="Apnoe-Dynamik_40.png" />
+    <bitmap id="countdownGo" filename="go.png" />
     <drawable-list id="Einteilung" background="Gfx.COLOR_TRANSPARENT">
-      <shape type="rectangle" x="0" y="77" width="240" height="3" color="0xFFFF00" />
-      <shape type="rectangle" x="0" y="160" width="240" height="3" color="0xFFFF00" />
+      <shape type="circle" x="120" y="120" radius="90" color="0xffaa00"/>
+      <shape type="circle" x="120" y="120" radius="88" color="0x000000"/>
+      <shape type="rectangle" x="38" y="85" width="165" height="2" color="0xffaa00" />
+      <shape type="rectangle" x="38" y="155" width="165" height="2" color="0xffaa00" />
     </drawable-list>
 </drawables>

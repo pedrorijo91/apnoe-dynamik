@@ -8,7 +8,7 @@ class DiveState extends State {
 		// Store startTime in training
 		
 		WatchUi.switchToView(
-			new DiveView(training),
+			new DiveView(stateStartedAt),
 			State.defaultDelegate,
 			WatchUi.SLIDE_IMMEDIATE);
 	}

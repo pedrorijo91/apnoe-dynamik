@@ -3,10 +3,11 @@ class RelaxState extends TimedState {
 	function initialize() {
 	   	debug("Switching to Relax State.");
 	
-		TimedState.initialize(training.relaxDurations[training.round]);
+		var relaxDuration = currentTraining.relaxDurations[currentTrainingSession.round];
+		TimedState.initialize(relaxDuration);
 		
 		WatchUi.switchToView(
-			new RelaxView(training),
+			new RelaxView(stateStartedAt, relaxDuration),
 			State.defaultDelegate,
 			WatchUi.SLIDE_IMMEDIATE);
 	}
@@ -18,15 +19,15 @@ class RelaxState extends TimedState {
     }
     
     function nextRound() {
-    	training.round++;
-		return training.round < training.relaxDurations.size();
+    	currentTrainingSession.round++;
+		return currentTrainingSession.round < currentTraining.rounds();
     }
     
     function nextStep() {
     	debug("NextStep.  Will switch to DiveState or SummaryState.");
     	
-    	var switchToDive = nextRound();
-    	if (switchToDive) {
+    	var shouldSwitchToDive = nextRound();
+    	if (shouldSwitchToDive) {
     		var newState = new DiveState();
     	} else {
     		// var newState = new SummaryState();

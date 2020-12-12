@@ -4,8 +4,10 @@ class HomeState extends State {
 
 	function initialize() {
 	  	debug("Switching to Home state.");
-
+	  	
 		State.initialize();
+		
+		currentTraining = new Training();
 		
 		// Keep the AppView on the stack.  Probably not necessary.
 		WatchUi.pushView(
@@ -22,11 +24,7 @@ class HomeState extends State {
     	debug("Accept pressed.  Will switch to PrepareState.");
     	
     	// Build the Training object.
-    	training = new Training();
+    	currentTrainingSession = new TrainingSession();
     	var newState = new PrepareState();   
-    }
-    
-    function getModus() {
-    	return "hallo";
     }
 }

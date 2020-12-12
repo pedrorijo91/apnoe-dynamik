@@ -17,6 +17,14 @@ class TimedState extends State {
 		timer.start(method(:onStateTimer), _nextStateIn, false);
 	}
 	
+	function onStateLeave() {
+		State.onStateLeave();
+		if (timer != null) {
+			timer.stop();
+		}
+		timer = null;
+	}
+	
 	function onStateTimer() {
 		debug("onStateTimer");
 		nextStep();

@@ -6,45 +6,27 @@ class State {
 	public static var defaultDelegate;
 	
 	static var training;
-	
-	static var viewTimer;
+	static var trainingSession;
 	
 	var stateStartedAt;
 	
 	function initialize() {
 		debug("Entering new state.");
 
+		if (activeState != null) {
+			activeState.onStateLeave();
+		}
 		activeState = self;
 		
 		stateStartedAt = System.getTimer();
-		
-		if (viewTimer == null) {
-			viewTimer = new Timer.Timer();
-		} else {
-			viewTimer.stop();
-		}
-		
-		viewTimer.start(method(:onTimer), 1000, true);
 	}
 	
-	
-	
-	function onTimer() {
-		debug("onTimer called");
-		WatchUi.requestUpdate();
-		
-		var timeInState = System.getTimer() - stateStartedAt;
-		
-		debug("In state since: " + timeInState);
-		onUpdate(timeInState);
+	function onStateLeave() {
+		// Don't do anything.
+		// Allow subclasses to overwrite this function.
 	}
 	
-	
-	
-	function onUpdate(timeInState) {
-		debug("onUpdate called with (" + timeInState + ")");
-	}	
-	
+
 	function onMenu() {
 		debug("onMenu ignored");
     	return true;
