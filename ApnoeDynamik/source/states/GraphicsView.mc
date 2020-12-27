@@ -1,6 +1,7 @@
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
+
 class GraphicsView extends WatchUi.View {
     
     const INNER_RADIUS = 88;
@@ -14,10 +15,13 @@ class GraphicsView extends WatchUi.View {
     const SECONDARY_COLOR = 0xffaa00;
     const PROGRESS_BACKGROUND_COLOR = Graphics.COLOR_DK_GRAY;
     
+    
+       
     function initialize() {
     	View.initialize();
     }
     
+ 
     	
 	function centerX(dc) {
 		return dc.getWidth()/2;

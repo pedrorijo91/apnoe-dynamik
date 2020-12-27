@@ -1,4 +1,5 @@
 using Toybox.Application;
+using Toybox.FitContributor;
 
 var app;
 
@@ -10,12 +11,35 @@ function debug(debugText) {
 	app.debug(debugText);
 }
 
+
+const FIELD_AVG_HR = "avHR";
+const FIELD_DESC = "desc";
+const FIELD_DIST = "dist";
+
+var activityFields = [
+	new ActivityField(FIELD_AVG_HR, FitContributor.DATA_TYPE_UINT16, "bpm", FitContributor.MESG_TYPE_LAP, null),
+	new ActivityField(FIELD_DESC, FitContributor.DATA_TYPE_STRING, null, FitContributor.MESG_TYPE_LAP, "PREPARE"),
+	new ActivityField(FIELD_DIST, FitContributor.DATA_TYPE_UINT16, "m", FitContributor.MESG_TYPE_SESSION, null)
+];
+
+
+
 class App extends Application.AppBase {
 	
 	function initialize() {
     	AppBase.initialize();
     	// Store the App object for the debug function.
     	app = self;
+    }
+    
+    static function saveActivityValue(name, value) {
+    	for (var i = 0; i < activityFields.size(); i++) {
+    		var currentField = activityFields[i];
+    		if (currentField.name == name) {
+    			currentField.save(value);
+    			return;
+    		}
+    	}
     }
     
     // Used by the debug function (see above).
@@ -25,6 +49,7 @@ class App extends Application.AppBase {
 
     // onStart() is called on application start up
     function onStart(state) {
+    
     }
 
     // onStop() is called when your application is exiting
@@ -34,9 +59,7 @@ class App extends Application.AppBase {
     // Return the initial view of your application here
     function getInitialView() {
     	debug("Starting our initial views.");
-    	var appDelegate = new AppDelegate();
-    	State.defaultDelegate = appDelegate;
-        return [ new AppView(), appDelegate ];
+    	return [ new AppView(), new AppDelegate() ];
     }
 
 }

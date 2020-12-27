@@ -1,12 +1,13 @@
 <strings>
-    <string id="AppName">Apnea Statics</string>
+    <string id="AppName">Apnea Dynamic</string>
 
     <string id="prompt">click the menu button</string>
 
-    <string id="phase1">RELAX-1</string>
-    <string id="phase2">HYPERVEN.</string>
-    <string id="phase3">RELAX-2</string>
-    <string id="phase4">STATIC</string>
+    <string id="phase0">DYNAMIC</string>
+    <string id="phase1">PREPARE</string>
+    <string id="phase2">DIVE</string>
+    <string id="phase3">RECREATION</string>
+    <string id="phase4">Test</string>
     
     <string id="alarm_beep">Alarm Beep</string>
     <string id="alarm_vibrate">Alarm Vibrate</string>
@@ -15,6 +16,8 @@
     <string id="phase_data_label">phase</string>    
     <string id="phase_unit_label">phase</string>
     <string id="heartRatePrefix">hr</string>
+    <string id="meterSuffix">m</string>
+    <string id="lastDivePrefix">last dive</string>
     
     <string id="saveActivityQuestion">save activity?</string>
 

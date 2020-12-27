@@ -5,23 +5,40 @@ class DiveState extends State {
 	
 		State.initialize();
 		
+		ActivityHelper.addLap();
+		App.saveActivityValue(FIELD_DESC, "DIVE " + currentTrainingSession.round + 1);
+		
 		// Store startTime in training
 		
 		WatchUi.switchToView(
 			new DiveView(stateStartedAt),
-			State.defaultDelegate,
+			new DiveDelegate(self),
 			WatchUi.SLIDE_IMMEDIATE);
 	}
-	
-	function onAccept() {
-    	debug("Accept pressed.  Will switch to RelaxState.");
-    	
-		nextStep();
+
+    
+    function onStateLeave() {
+    	debug("We are leaving the dive State.");
+    	var diveTime = System.getTimer() - stateStartedAt;
+    	debug("Storing the diveTime: " + diveTime + " in the current training session.");
+    	currentTrainingSession.diveTimes.add(diveTime);
+
+    	currentTrainingSession.round++;
     }
     
-    function nextStep() {
-    	debug("NextStep.  Will switch to RelaxState.");
+    
+    function isNextSummary() {
+		return (currentTrainingSession.round + 1) == currentTraining.rounds();
+    }
+    
+    function switchToRelaxOrSummary() {
+    	debug("switchToRelaxOrSummary");
     	
-    	var newState = new RelaxState();   
+    	if (isNextSummary()) {
+    		debug("Training finished.  Switch to summary");
+    		var newState = new SummaryState();
+    	} else {
+    		var newState = new RelaxState();
+    	}
     }
 }

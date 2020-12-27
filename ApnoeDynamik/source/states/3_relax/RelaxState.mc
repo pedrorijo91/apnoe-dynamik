@@ -1,36 +1,50 @@
-class RelaxState extends TimedState {
+class RelaxState extends State {
+
+	var countdown;
 
 	function initialize() {
 	   	debug("Switching to Relax State.");
-	
+		
+		State.initialize();
+
+		ActivityHelper.addLap();
+		App.saveActivityValue(FIELD_DESC, "RELAX " + currentTrainingSession.round + 1);
+		
+
 		var relaxDuration = currentTraining.relaxDurations[currentTrainingSession.round];
-		TimedState.initialize(relaxDuration);
+		countdown = new Countdown(self, relaxDuration);
 		
 		WatchUi.switchToView(
-			new RelaxView(stateStartedAt, relaxDuration),
-			State.defaultDelegate,
+			new RelaxView(countdown),
+			new RelaxDelegate(self),
 			WatchUi.SLIDE_IMMEDIATE);
 	}
-	
-	function onAccept() {
-	  	debug("Accept pressed.  Will switch to nextStep.");
 
-		nextStep();
+		
+	function onStateLeave() {
+		countdown.stop();
+	}
+
+	
+	function timeExpired() {
+		switchToDive();
+	}
+	
+		
+	function togglePause() {
+		countdown.togglePause();
+	}
+	
+	    
+    function switchToDive() {
+    	debug("switchToDive");
+
+   		var newState = new DiveState();
     }
     
-    function nextRound() {
-    	currentTrainingSession.round++;
-		return currentTrainingSession.round < currentTraining.rounds();
-    }
-    
-    function nextStep() {
-    	debug("NextStep.  Will switch to DiveState or SummaryState.");
+    function switchToSummary() {
+    	debug("switchToSummary");
     	
-    	var shouldSwitchToDive = nextRound();
-    	if (shouldSwitchToDive) {
-    		var newState = new DiveState();
-    	} else {
-    		// var newState = new SummaryState();
-    	}
+    	var newState = new SummaryState();
     }
 }

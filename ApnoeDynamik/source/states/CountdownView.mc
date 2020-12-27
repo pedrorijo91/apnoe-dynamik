@@ -3,13 +3,20 @@ using Toybox.Math;
 
 class CountdownView extends MainLayoutView {
 
-	const UPDATE_INTERVALL = 1000;
-
 	var mode;
+	var countdown;
 	
-    function initialize(_mode, _stateStartedAt, _stateDuration) {
+    function initialize(_mode, _countdown) {
     	mode = _mode;
-    	MainLayoutView.initialize(_stateStartedAt, _stateDuration);
+    	
+    	countdown = _countdown;
+    	
+    	MainLayoutView.initialize();
+    }
+    
+    
+    function fullSecondUpdate() {
+		WatchUi.requestUpdate();
     }
 
 
@@ -18,15 +25,16 @@ class CountdownView extends MainLayoutView {
     // loading resources into memory.
     function onShow() {
     	debug("PrepareView onShow");
-    	startUpdateTimer(UPDATE_INTERVALL);  // Update every second.
+    	countdown.fullSecondListen(self);
     	MainLayoutView.onShow();
     }
     
     	
     // Update the view
     function onUpdate(dc) {
-    	var timeInState = calcTimeInState();
-    	var remainingTime = calcRemainingTimeInState();
+    	var timeInState = countdown.time();
+    	var remainingTime = countdown.remainingTime();
+    	var stateDuration = countdown.duration();
     	
 		var timeInStateSeconds = Math.round(timeInState / 1000.0);
     	var remainingSeconds = Math.round(remainingTime / 1000.0);
@@ -35,7 +43,7 @@ class CountdownView extends MainLayoutView {
     	var totalRounds = currentTraining.rounds();
     	
    	    setModeText(mode);
-   		setTimeText(remainingSeconds);
+   		setTimeText(remainingTime);
     	
     	// Call the parent onUpdate function to redraw the layout
         MainLayoutView.onUpdate(dc);
@@ -43,7 +51,10 @@ class CountdownView extends MainLayoutView {
         drawProgressInnerInverted(dc, timeInState, stateDuration);
         drawProgressOuter(dc, currentRound, totalRounds);
 
-		if (remainingSeconds <= 10) {    	
+		if (remainingSeconds <= 5) {
+			AttentionHelper.beep();
+			AttentionHelper.displayOn();
+			AttentionHelper.vibrate(50, 250);
     		drawBigCenteredNumber(dc, remainingSeconds, MAIN_COLOR);
     	}
     }

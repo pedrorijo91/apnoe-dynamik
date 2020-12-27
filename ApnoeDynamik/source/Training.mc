@@ -7,16 +7,20 @@
  	var prepareDuration;
  	var relaxDurations;
  	
+ 	var distance;
+ 	
  	function initialize() {
  		// Get settings and build information for a training.
- 		prepareDuration = 11000;
+ 		prepareDuration = 15000;
+ 		
+ 		distance = 25;
  		
  		relaxDurations = [
-	 		12000,
-	 		13000,
-	 		14000,
-	 		13000,
-	 		12000
+	 		85000,
+//	 		14000,
+//	 		13000,
+//	 		12000,
+	 		11000
 	 	];
  	}
  	

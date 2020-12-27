@@ -1,29 +1,52 @@
-class PrepareState extends TimedState {
+class PrepareState extends State {
+	
+	var countdown;
 	
 	function initialize() {
 	   	debug("Switching to Prepare State.");
-	   	
-		TimedState.initialize(currentTraining.prepareDuration);
+
+		initializeApp();
+    	
+		State.initialize();
+
+		var prepareDuration = currentTraining.prepareDuration;
+	   	countdown = new Countdown(self, prepareDuration);
 		
-		var view = new PrepareView(stateStartedAt, currentTraining.prepareDuration);
+		var view = new PrepareView(countdown);
 		
 		WatchUi.switchToView(
 			view,
-			State.defaultDelegate,
+			new PrepareDelegate(self),
 			WatchUi.SLIDE_IMMEDIATE);
 	}
 	
 	
-	function onAccept() {
-    	debug("Accept pressed.  Will switch to nextStep.");
-
-		nextStep();
-    }
-    
-    
-    function nextStep() {
-    	debug("NextStep.  Will switch to DiveState.");
+	static function initializeApp() {
+		   	
+	   	// Build the Training object.
+    	currentTrainingSession = new TrainingSession();
     	
-    	var newState = new DiveState();   
+    	ActivityHelper.startRecording(activityFields);
+    	App.saveActivityValue(FIELD_DIST, 25); // TODO
+	}
+		
+		
+	function onStateLeave() {
+		countdown.stop();
+	}
+	
+	
+	function timeExpired() {
+		switchToDive();
+	}
+	
+	function togglePause() {
+		countdown.togglePause();
+	}
+	
+
+    function switchToDive() {
+    	debug("switchToDiveState.");
+    	var newState = new DiveState();
     }
 }

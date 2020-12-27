@@ -2,9 +2,19 @@ using Toybox.WatchUi;
 
 class RelaxView  extends CountdownView {
 
-	const RELAX = "RELAX";
+	const RELAX = WatchUi.loadResource(Rez.Strings.phase3);
 
-    function initialize(_stateStartedAt, _stateDuration) {
-    	CountdownView.initialize(RELAX, _stateStartedAt, _stateDuration);
+    function initialize(_countdown) {
+    	CountdownView.initialize(RELAX, _countdown);
     }
+
+//	function onUpdate(dc) {
+//		var textFeldDiveTime;
+//        textFeldDiveTime = View.findDrawableById("infoId");
+//        var dtPrifix = WatchUi.loadResource(Rez.Strings.lastDivePrefix);
+//        textFeldDiveTime.setText(dtPrifix + " " + "1:23");
+//
+//		CountdownView.onUpdate(dc);
+//  }
+
 }

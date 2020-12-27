@@ -1,3 +1,7 @@
+
+// The current training session will always be accessible with this variable.
+// currentTrainingSession is initialized by the HomeState.
+// All other states modify values inside the TrainingSession object.
 var currentTrainingSession;
 
 class TrainingSession {
@@ -6,7 +10,10 @@ class TrainingSession {
  	var startTime;
  	
  	var round = 0;
- 	 	
+ 	
+ 	var diveTimes = [];
+ 
+ 
  	function initialize() {
 		// getTimer() returns the current millisecond timer.
  		// The value is a 32 bit integer representing the number of milliseconds the system has been running.

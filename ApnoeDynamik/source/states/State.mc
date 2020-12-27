@@ -3,7 +3,6 @@ using Toybox.Timer;
 class State {
 	
 	public static var activeState;
-	public static var defaultDelegate;
 	
 	static var training;
 	static var trainingSession;
@@ -46,4 +45,7 @@ class State {
 		debug("onDown ignored");
     	return true;
     }    
+
+
+
 }

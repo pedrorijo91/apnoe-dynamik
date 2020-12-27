@@ -3,12 +3,16 @@ using Toybox.WatchUi;
 class DiveView extends MainLayoutView {
 
 	const DISPLAY_GO_DURATION = 3;
-	const DIVE = "DIVE";
-	const UPDATE_INTERVALL = 1000;
+	const DIVE = WatchUi.loadResource(Rez.Strings.phase2);
+	const UPDATE_INTERVALL = 1000;  // Update every second.
 	
+	var stateStartedAt;
+	
+	var firstTime = true;
 	
     function initialize(_stateStartedAt) {
-    	MainLayoutView.initialize(_stateStartedAt, null);
+    	stateStartedAt = _stateStartedAt;
+    	MainLayoutView.initialize();
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -16,9 +20,20 @@ class DiveView extends MainLayoutView {
     // loading resources into memory.
     function onShow() {
   		debug("DiveView onShow");
-  		startUpdateTimer(UPDATE_INTERVALL);  // Update every second.
+  		autoUpdate(UPDATE_INTERVALL);
   		MainLayoutView.onShow();    	
     }
+
+
+	function calcTimeInState() {
+		// If the state doesn't set a stateStartedAt time we can't calculate how long we have been in the state.
+		// Let's return null in this case.
+		if (stateStartedAt != null) {
+			return System.getTimer() - stateStartedAt;
+		} else {
+			return null;
+		}
+	}
 
     // Update the view
     function onUpdate(dc) {
@@ -26,7 +41,7 @@ class DiveView extends MainLayoutView {
     	var timeInStateSeconds = Math.round(timeInState / 1000.0);
 
 		setModeText(DIVE);
-    	setTimeText(timeInStateSeconds);
+    	setTimeText(timeInState);
         
         // Call the parent onUpdate function to redraw the layout
         MainLayoutView.onUpdate(dc);
@@ -35,13 +50,17 @@ class DiveView extends MainLayoutView {
     	var totalRounds = currentTraining.rounds();
     	
     	var innerOn = 0;
-    	if (timeInStateSeconds <= DISPLAY_GO_DURATION) {
+    	if (timeInStateSeconds < DISPLAY_GO_DURATION) {
     		drawImgCentered(dc, Rez.Drawables.countdownGo);
-    		innerOn = (timeInStateSeconds.toNumber() + 1) % 2;  // divide by 2 and take the remainder ==> 1 % 2 == 1    2 % 2 == 0    3 % 2 == 1     4 % 2 == 0
+    		innerOn = /* 1; // wenn es NICHT plinken soll: */ (timeInStateSeconds.toNumber() + 1) % 2;  // divide by 2 and take the remainder ==> 1 % 2 == 1    2 % 2 == 0    3 % 2 == 1     4 % 2 == 0
     	}
+
+		if (firstTime) {
+			AttentionHelper.vibrate(100, 500);
+			firstTime = false;
+		}
     	
     	drawProgressInner(dc, innerOn, 1);
         drawProgressOuter(dc, currentRound, totalRounds);
-    	
     }
 }
