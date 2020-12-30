@@ -20,14 +20,20 @@ class SummaryState extends State {
 	
 	function save() {
 		appActivityHelper.save();
-		switchToHomeState();
+		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 	}
 	
-	function switchToHomeState() {
-		var newState = new HomeState();
+	function noSave() {
+		appActivityHelper.stopAndClearRecording();
+		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 	}
 	
 	function askSave() {
-		var newState = new AskSaveState();
+		debug("askSave");
+		var askSaveQuestion = WatchUi.loadResource(Rez.Strings.saveActivityQuestion);
+		
+		// method will return an invoke object.
+    	// calling .invoke on the object is equivalent to calling the function itself.
+    	ConfirmHelper.askQuestion(askSaveQuestion, method(:save), method(:noSave));
 	}
 }

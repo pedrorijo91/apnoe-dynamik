@@ -66,7 +66,7 @@ class ActivityHelperBase {
 		debug("Saving session.");
 		if (session != null) {
 			session.save();
-			session.discard();
+			session = null;
 		}
 	}
 
@@ -75,6 +75,7 @@ class ActivityHelperBase {
 		stopRecording();
 		if (session != null) {
 			session.discard();
+			session = null;
 		}
 	}
 	

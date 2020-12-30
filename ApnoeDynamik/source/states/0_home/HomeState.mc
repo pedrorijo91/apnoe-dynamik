@@ -8,6 +8,7 @@ class HomeState extends State {
 		State.initialize();
 		
 		currentTraining = new Training();
+		currentTrainingSession = null;
 		
 		// TODO stopRecording  clear Recording;
 		appActivityHelper.stopAndClearRecording();
@@ -19,7 +20,6 @@ class HomeState extends State {
 			WatchUi.SLIDE_IMMEDIATE);
 	}
 	
-
     function switchToPrepare() {
     	var newState = new PrepareState();   
     }

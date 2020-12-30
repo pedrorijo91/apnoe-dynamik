@@ -22,9 +22,11 @@ class SummaryDelegate extends DelegateBase {
 	
 	function onSelect() {
 		state.save();
+		return true;
 	}
 	
 	function onBack() {
 		state.askSave();
+		return true;
 	}
 }
