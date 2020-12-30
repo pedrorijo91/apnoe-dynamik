@@ -2,7 +2,7 @@ using Toybox.WatchUi;
 
 class DiveView extends MainLayoutView {
 
-	const DISPLAY_GO_DURATION = 3;
+	const DISPLAY_GO_DURATION = 3; // Anzeige des "GO" nach Countown in sec.
 	const DIVE = WatchUi.loadResource(Rez.Strings.phase2);
 	const UPDATE_INTERVALL = 1000;  // Update every second.
 	
@@ -40,7 +40,7 @@ class DiveView extends MainLayoutView {
     	var timeInState = calcTimeInState();
     	var timeInStateSeconds = Math.round(timeInState / 1000.0);
 
-		setModeText(DIVE);
+		setModeText(DIVE); // TODO - + phasen NR.
     	setTimeText(timeInState);
         
         // Call the parent onUpdate function to redraw the layout

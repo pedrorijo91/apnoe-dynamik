@@ -2,6 +2,8 @@ using Toybox.WatchUi;
 
 class SummaryView  extends WatchUi.View {
 
+	const SUMMARY = WatchUi.loadResource(Rez.Strings.phase4);
+
 	hidden var currentlyDisplayedDive = 0;
 	hidden var numberOfSavedDiveTimes;
 
@@ -38,11 +40,20 @@ class SummaryView  extends WatchUi.View {
 	function onUpdate(dc) {
 		var currentDiveTime = currentTrainingSession.diveTimes[currentlyDisplayedDive];
 		
-		var textFeldDiveTime;
-        textFeldDiveTime = View.findDrawableById("infoId");
-        var dtPrifix = WatchUi.loadResource(Rez.Strings.lastDivePrefix);
-        textFeldDiveTime.setText(dtPrifix + " " + currentDiveTime);
+		var textFeldMode;
+        textFeldMode = View.findDrawableById("modusId");
+        textFeldMode.setText(SUMMARY);		
+		
+		var textFeldDiveTime; // TODO -  Zeit der angezeigten Phase
+        textFeldDiveTime = View.findDrawableById("zeitId");
+        textFeldDiveTime.setText("" + currentDiveTime);
         debug("Current dive time: " + currentDiveTime);
+
+		var textFeldInfo;
+        textFeldInfo = View.findDrawableById("infoId");
+        textFeldInfo.setText("Phase"); // TODO - Name der angezeigten Phase
+		
+	   	
 
 		WatchUi.View.onUpdate(dc);
   }
