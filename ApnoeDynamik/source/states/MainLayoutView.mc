@@ -1,5 +1,4 @@
 using Toybox.Sensor;
-//using Toybox.System;
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
@@ -13,14 +12,7 @@ class MainLayoutView extends AutoUpdateView {
     	AutoUpdateView.initialize();
   	}
  
- 
 
-//    function onExit() {
-//    	System.exit(WatchUi.KEY_UP);
-//    }
-      
-    
-   
 
 	// Load your resources here
     function onLayout(dc) {

@@ -3,7 +3,7 @@ using Toybox.Math;
 
 class CountdownView extends MainLayoutView {
 
-	var mode;
+	var mode;  // TODO - mode + phasen NR.
 	var countdown;
 	
     function initialize(_mode, _countdown) {
@@ -55,7 +55,7 @@ class CountdownView extends MainLayoutView {
 			AttentionHelper.beep();
 			AttentionHelper.displayOn();
 			AttentionHelper.vibrate(50, 250);
-    		graphicsHelper.drawBigCenteredNumber(dc, remainingSeconds, MAIN_COLOR);
+    		graphicsHelper.drawBigCenteredNumber(dc, remainingSeconds, GraphicsHelper.MAIN_COLOR);
     	}
     }
 }

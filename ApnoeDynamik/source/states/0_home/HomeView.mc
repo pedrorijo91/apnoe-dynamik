@@ -29,16 +29,12 @@ class HomeView extends MainLayoutView {
         textFeldModus.setText(WatchUi.loadResource(Rez.Strings.phase0));
         
         
-        var prepareZeit = "99:99"; // prepareDuration;
+        var prepareZeit = currentTraining.prepareDuration; // TODO
         
         var textFeldZeit;
         textFeldZeit = View.findDrawableById("zeitId");
-        textFeldZeit.setText(prepareZeit);
-//        
-//        var textFeldMeter;
-//        textFeldMeter = View.findDrawableById("infoId");
-//        var mSuffix = WatchUi.loadResource(Rez.Strings.meterSuffix);
-//        textFeldMeter.setText("50" + mSuffix);
+        textFeldZeit.setText("" + prepareZeit);
+
 
     	// Call the parent onUpdate function to redraw the layout
         MainLayoutView.onUpdate(dc);
