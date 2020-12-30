@@ -8,15 +8,4 @@ class PrepareView extends CountdownView {
     function initialize(_countdown) {
     	CountdownView.initialize(PREPARE, _countdown);
     }
-
-//	function onUpdate(dc) {
-//		var textFeldMeter;
-//        textFeldMeter = View.findDrawableById("infoId");
-//        var mSuffix = WatchUi.loadResource(Rez.Strings.meterSuffix);
-//        textFeldMeter.setText("50" + mSuffix);
-//
-//		CountdownView.onUpdate(dc);
-//  }
-
-
 }

@@ -1,19 +1,19 @@
 using Toybox.WatchUi;
 
-class SummaryView  extends GraphicsView {
+class SummaryView  extends WatchUi.View {
 
 	hidden var currentlyDisplayedDive = 0;
 	hidden var numberOfSavedDiveTimes;
 
 	function initialize() {
-		GraphicsView.initialize();
+		WatchUi.View.initialize();
 		numberOfSavedDiveTimes = currentTrainingSession.diveTimes.size();
     }
     
     // Load your resources here
     function onLayout(dc) {
         setLayout(Rez.Layouts.MainLayout(dc));
-        AutoUpdateView.onLayout(dc);
+        WatchUi.View.onLayout(dc);
     }
     
     
@@ -44,7 +44,7 @@ class SummaryView  extends GraphicsView {
         textFeldDiveTime.setText(dtPrifix + " " + currentDiveTime);
         debug("Current dive time: " + currentDiveTime);
 
-		GraphicsView.onUpdate(dc);
+		WatchUi.View.onUpdate(dc);
   }
 
 }

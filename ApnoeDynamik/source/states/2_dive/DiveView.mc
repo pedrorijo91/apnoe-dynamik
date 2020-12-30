@@ -51,7 +51,7 @@ class DiveView extends MainLayoutView {
     	
     	var innerOn = 0;
     	if (timeInStateSeconds < DISPLAY_GO_DURATION) {
-    		drawImgCentered(dc, Rez.Drawables.countdownGo);
+    		graphicsHelper.drawImgCentered(dc, Rez.Drawables.countdownGo);
     		innerOn = /* 1; // wenn es NICHT plinken soll: */ (timeInStateSeconds.toNumber() + 1) % 2;  // divide by 2 and take the remainder ==> 1 % 2 == 1    2 % 2 == 0    3 % 2 == 1     4 % 2 == 0
     	}
 
@@ -60,7 +60,7 @@ class DiveView extends MainLayoutView {
 			firstTime = false;
 		}
     	
-    	drawProgressInner(dc, innerOn, 1);
-        drawProgressOuter(dc, currentRound, totalRounds);
+    	graphicsHelper.drawProgressInner(dc, innerOn, 1);
+        graphicsHelper.drawProgressOuter(dc, currentRound, totalRounds);
     }
 }

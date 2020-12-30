@@ -48,14 +48,14 @@ class CountdownView extends MainLayoutView {
     	// Call the parent onUpdate function to redraw the layout
         MainLayoutView.onUpdate(dc);
         
-        drawProgressInnerInverted(dc, timeInState, stateDuration);
-        drawProgressOuter(dc, currentRound, totalRounds);
+        graphicsHelper.drawProgressInnerInverted(dc, timeInState, stateDuration);
+        graphicsHelper.drawProgressOuter(dc, currentRound, totalRounds);
 
 		if (remainingSeconds <= 5) {
 			AttentionHelper.beep();
 			AttentionHelper.displayOn();
 			AttentionHelper.vibrate(50, 250);
-    		drawBigCenteredNumber(dc, remainingSeconds, MAIN_COLOR);
+    		graphicsHelper.drawBigCenteredNumber(dc, remainingSeconds, MAIN_COLOR);
     	}
     }
 }

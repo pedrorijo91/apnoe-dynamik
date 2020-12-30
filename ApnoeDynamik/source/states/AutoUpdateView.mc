@@ -1,11 +1,12 @@
 using Toybox.Timer;
+using Toybox.WatchUi;
 
-class AutoUpdateView extends GraphicsView {
+class AutoUpdateView extends WatchUi.View {
 	    
     var timer;
     
     function initialize() {
-    	GraphicsView.initialize();
+    	WatchUi.View.initialize();
     }
     
 
@@ -39,6 +40,6 @@ class AutoUpdateView extends GraphicsView {
 			timer.stop();
 		}
 		timer = null;
-		GraphicsView.onHide();
+		WatchUi.View.onHide();
 	}
 }

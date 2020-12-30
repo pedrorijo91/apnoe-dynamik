@@ -44,7 +44,7 @@ class HomeView extends MainLayoutView {
         MainLayoutView.onUpdate(dc);
                
                 
-        drawProgressInner(dc, 0, 1);
-        drawProgressOuter(dc, 0, 1);
+        graphicsHelper.drawProgressInner(dc, 0, 1);
+        graphicsHelper.drawProgressOuter(dc, 0, 1);
     }
 }
