@@ -3,13 +3,10 @@ using Toybox.WatchUi;
 
 
 class GraphicsView extends WatchUi.View {
-    
-    const INNER_RADIUS = 88;
-    
-    const INNER_PROGRESS_RADIUS = 99;
-    const OUTER_PROGRESS_RADIUS = 114;
-    
-    const STATE_ARC_WIDTH = 12;
+ 
+ 
+   
+   
     
     const MAIN_COLOR = 0xffff00;
     const SECONDARY_COLOR = 0xffaa00;
@@ -21,6 +18,25 @@ class GraphicsView extends WatchUi.View {
     	View.initialize();
     }
     
+ 
+ 	function _innerRadius(dc) {
+ 		return dc.getWidth() * 37 / 100;
+ 	}
+ 	
+ 	function _innerProgressRadius(dc) {
+ 		return dc.getWidth() * 42 / 100;
+ 	}
+ 
+ 	function _outerProgressRadius(dc) {
+ 		return dc.getWidth() * 48 / 100;
+ 	}
+ 
+ 	function _stateArcWidth(dc) {
+ 		return dc.getWidth() * 5 / 100;
+ 	}
+ 	
+ 
+ 
  
     	
 	function centerX(dc) {
@@ -64,27 +80,27 @@ class GraphicsView extends WatchUi.View {
 	function drawProgressArcs(dc, isState, completeState, radius, color, backgroundColor) {
 		var angleDone = angleDone(isState, completeState);
 		var angleToDo = 360 - angleDone;
-  		drawArcAt12oClock(dc, angleDone, Graphics.ARC_CLOCKWISE, STATE_ARC_WIDTH, radius, color);
-		drawArcAt12oClock(dc, angleToDo, Graphics.ARC_COUNTER_CLOCKWISE, STATE_ARC_WIDTH, radius, backgroundColor);
+  		drawArcAt12oClock(dc, angleDone, Graphics.ARC_CLOCKWISE, _stateArcWidth(dc), radius, color);
+		drawArcAt12oClock(dc, angleToDo, Graphics.ARC_COUNTER_CLOCKWISE, _stateArcWidth(dc), radius, backgroundColor);
 	}
 	
 	function drawProgressInner(dc, isState, completeState) {
-		drawProgressArcs(dc, isState, completeState, INNER_PROGRESS_RADIUS, MAIN_COLOR, PROGRESS_BACKGROUND_COLOR);
+		drawProgressArcs(dc, isState, completeState, _innerProgressRadius(dc), MAIN_COLOR, PROGRESS_BACKGROUND_COLOR);
 	}
 	
 	function drawProgressInnerInverted(dc, isState, completeState) {
-		drawProgressArcs(dc, isState, completeState, INNER_PROGRESS_RADIUS, PROGRESS_BACKGROUND_COLOR, MAIN_COLOR);
+		drawProgressArcs(dc, isState, completeState, _innerProgressRadius(dc), PROGRESS_BACKGROUND_COLOR, MAIN_COLOR);
 	}
 	
 	function drawProgressOuter(dc, isState, completeState) {
-		drawProgressArcs(dc, isState, completeState, OUTER_PROGRESS_RADIUS, SECONDARY_COLOR, PROGRESS_BACKGROUND_COLOR);
+		drawProgressArcs(dc, isState, completeState, _outerProgressRadius(dc), SECONDARY_COLOR, PROGRESS_BACKGROUND_COLOR);
 	} 
 	 
 	
 	function blackCenter(dc) {
 	    //Countdown Grafik
     	dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-    	dc.fillCircle(centerX(dc), centerY(dc), INNER_RADIUS);
+    	dc.fillCircle(centerX(dc), centerY(dc), _innerRadius(dc));
     }
 	
 	function drawBigCenteredNumber(dc, number, color) {
