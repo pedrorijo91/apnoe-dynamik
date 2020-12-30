@@ -1,6 +1,6 @@
 using Toybox.WatchUi;
 
-class RelaxView  extends CountdownView {
+class RelaxView extends CountdownView {
 
 	const RELAX = WatchUi.loadResource(Rez.Strings.phase3);
 

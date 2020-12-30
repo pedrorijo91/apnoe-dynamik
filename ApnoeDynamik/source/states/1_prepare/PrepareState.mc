@@ -26,8 +26,9 @@ class PrepareState extends State {
 	   	// Build the Training object.
     	currentTrainingSession = new TrainingSession();
     	
-    	ActivityHelper.startRecording(activityFields);
-    	App.saveActivityValue(FIELD_DIST, 25); // TODO
+    	
+    	appActivityHelper.startRecording();
+    	appActivityHelper.distance.save(25); // TODO
 	}
 		
 		

@@ -7,8 +7,8 @@ class RelaxState extends State {
 		
 		State.initialize();
 
-		ActivityHelper.addLap();
-		App.saveActivityValue(FIELD_DESC, "RELAX " + currentTrainingSession.round + 1);
+		appActivityHelper.addLap();
+		appActivityHelper.description.save("RELAX " + currentTrainingSession.round + 1);
 		
 
 		var relaxDuration = currentTraining.relaxDurations[currentTrainingSession.round];

@@ -1,5 +1,6 @@
 using Toybox.Attention;
 
+
 class AttentionHelper {
 
 	static function displayOn() {

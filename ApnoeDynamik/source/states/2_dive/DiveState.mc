@@ -5,8 +5,8 @@ class DiveState extends State {
 	
 		State.initialize();
 		
-		ActivityHelper.addLap();
-		App.saveActivityValue(FIELD_DESC, "DIVE " + currentTrainingSession.round + 1);
+		appActivityHelper.addLap();
+		appActivityHelper.description.save("DIVE " + currentTrainingSession.round + 1);
 		
 		// Store startTime in training
 		

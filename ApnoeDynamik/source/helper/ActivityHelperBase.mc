@@ -2,15 +2,20 @@ using Toybox.ActivityRecording;
 using Toybox.FitContributor;
 using Toybox.WatchUi;
 
-class ActivityHelper {
+class ActivityHelperBase {
 
 	static const MAX_NB_CHARS_FOR_STRINGS = 16;
 
 	static var session;
 	
+		
 	static var fields;
+	
+	function initialize(_fields) {
+		fields = _fields;
+	}
 
-    static function startRecording(fields) {
+    function startRecording() {
 		if (Toybox has :ActivityRecording) {                          // check device for activity recording
         	var activityname = WatchUi.loadResource(Rez.Strings.AppName);
         	
@@ -51,11 +56,11 @@ class ActivityHelper {
     	}
 	}
 	
-	static function addLap() {
+	function addLap() {
 		session.addLap();
 	}
 
-    static function stopRecording(fields) {
+    function stopRecording() {
     	if ((session != null) && session.isRecording()) {
         	session.stop();           // stop the session
         }

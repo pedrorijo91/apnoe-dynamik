@@ -5,10 +5,6 @@ using Toybox.WatchUi;
 const graphicsHelper = new GraphicsHelper();
 
 class GraphicsHelper {
- 
- 
-   
-   
     
     const MAIN_COLOR = 0xffff00;
     const SECONDARY_COLOR = 0xffaa00;
