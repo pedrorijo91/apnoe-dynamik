@@ -6,9 +6,9 @@ const graphicsHelper = new GraphicsHelper();
 
 class GraphicsHelper {
     
-    const MAIN_COLOR = 0xffff00;
-    const SECONDARY_COLOR = 0xffaa00;
-    const PROGRESS_BACKGROUND_COLOR = Graphics.COLOR_DK_GRAY;
+    static const MAIN_COLOR = 0xffff00;
+    static const SECONDARY_COLOR = 0xffaa00;
+    static const PROGRESS_BACKGROUND_COLOR = Graphics.COLOR_DK_GRAY;
     
     
  

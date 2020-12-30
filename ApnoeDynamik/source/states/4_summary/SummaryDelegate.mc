@@ -19,4 +19,12 @@ class SummaryDelegate extends DelegateBase {
 		view.previousDiveTime();
 		return true;
 	}
+	
+	function onSelect() {
+		state.save();
+	}
+	
+	function onBack() {
+		state.askSave();
+	}
 }

@@ -1,12 +1,14 @@
+using Toybox.WatchUi;
+
 class SummaryState extends State {
 
 	function initialize() {
 	   	debug("Switching to Summary State.");
 		
 		State.initialize();
-		
-		finalizeRecording();
-		
+
+		appActivityHelper.stopRecording();
+				
 		var summaryView = new SummaryView();
 		var delegate = new SummaryDelegate(self, summaryView);
 
@@ -16,7 +18,16 @@ class SummaryState extends State {
 			WatchUi.SLIDE_IMMEDIATE);
 	}
 	
-	static function finalizeRecording() {
-		// TODO
+	function save() {
+		appActivityHelper.save();
+		switchToHomeState();
+	}
+	
+	function switchToHomeState() {
+		var newState = new HomeState();
+	}
+	
+	function askSave() {
+		var newState = new AskSaveState();
 	}
 }

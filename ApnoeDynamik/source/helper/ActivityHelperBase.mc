@@ -16,6 +16,7 @@ class ActivityHelperBase {
 	}
 
     function startRecording() {
+    	debug("Starting recording.");
 		if (Toybox has :ActivityRecording) {                          // check device for activity recording
         	var activityname = WatchUi.loadResource(Rez.Strings.AppName);
         	
@@ -57,10 +58,28 @@ class ActivityHelperBase {
 	}
 	
 	function addLap() {
+    	debug("Adding lap in recording.");
 		session.addLap();
 	}
+	
+	function save() {
+		debug("Saving session.");
+		if (session != null) {
+			session.save();
+			session.discard();
+		}
+	}
 
+	function stopAndClearRecording() {
+    	debug("Stop and clear recording");
+		stopRecording();
+		if (session != null) {
+			session.discard();
+		}
+	}
+	
     function stopRecording() {
+    	debug("Stop recording");
     	if ((session != null) && session.isRecording()) {
         	session.stop();           // stop the session
         }

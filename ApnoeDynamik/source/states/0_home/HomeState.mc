@@ -10,7 +10,7 @@ class HomeState extends State {
 		currentTraining = new Training();
 		
 		// TODO stopRecording  clear Recording;
-		appActivityHelper.stopRecording();
+		appActivityHelper.stopAndClearRecording();
 		
 		// Keep the AppView on the stack.  Probably not necessary.
 		WatchUi.pushView(
