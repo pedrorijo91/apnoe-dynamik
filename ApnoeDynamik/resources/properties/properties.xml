@@ -1,8 +1,11 @@
     <properties>
-        <property id="phase1Duration" type="number">120</property>
-        <property id="phase2Duration" type="number">30</property>
-        <property id="phase3Duration" type="number">150</property>
+        <property id="propPrepare" type="number">120</property>
+        <property id="propRounds" type="number">8</property>
+        <property id="propDistance" type="number">25</property>
+        <property id="propFirstRelax" type="number">120</property>
+        <property id="propRelaxReduce" type="number">10</property>
+        <property id="propAdjustInterval" type="number">1</property>
         <!-- <property id="alarm" type="boolean">true</property> -->
-        <property id="alarmBeep" type="boolean">true</property>
-        <property id="alarmVibrate" type="boolean">true</property>
+        <!-- <property id="alarmBeep" type="boolean">true</property> -->
+        <!-- <property id="alarmVibrate" type="boolean">true</property> -->
     </properties>

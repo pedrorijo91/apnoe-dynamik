@@ -1,5 +1,5 @@
 <strings>
-    <string id="AppName">Apnea Dynamic</string>
+    <string id="AppName">Apnoea Dynamic</string>
 
     <string id="prompt">click the menu button</string>
 
@@ -8,10 +8,7 @@
     <string id="phase2">DIVE</string>
     <string id="phase3">RECREATION</string>
     <string id="phase4">SUMMARY</string>
-    <string id="phase5">SAVE?</string>
-    
-    <string id="alarm_beep">Alarm Beep</string>
-    <string id="alarm_vibrate">Alarm Vibrate</string>
+
     
     <string id="heartRatePrefix">hr</string>
     <string id="meterSuffix">m</string>
@@ -19,18 +16,29 @@
     
     <string id="saveActivityQuestion">save activity?</string>
 
-    <string id="timePickerTitle">phase</string>
-    <string id="timeSeparator">phase</string>
     
     <!-- Fit contributor strings -->
     <string id="fitDescription">round</string>
     <string id="fitDistance">distance</string>
     <string id="fitDistanceUnit">m</string>    
     
-    <!-- Setting strings -->
     
+    <!-- Setting / Property strings -->
     <string id="settingmenutitel">settings</string>
-    <string id="alarmOnOff">on/off</string>
+
+    <string id="propPrepare">Prepare Duration</string>
+    <string id="propRounds">Rounds</string>
+    <string id="propDistance">Distance</string>
+    <string id="propFirstRelax">First Relax Duration</string>
+    <string id="propRelaxReduce">Reduce Relax D. by</string>
+    <string id="propAdjustInterval">Reduce Relax D. every n rounds</string>
+        
+    <string id="propAlarmBeep">Alarm Beep</string>
+    <string id="propAlarmVibrate">Alarm Vibrate</string>
+    
+
+    <string id="timePickerTitle">phase</string>
+    <string id="timeSeparator">phase</string>
     
     <!-- ENDE Setting strings -->
     
