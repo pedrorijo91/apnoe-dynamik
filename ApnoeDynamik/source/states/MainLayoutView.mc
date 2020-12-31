@@ -31,27 +31,12 @@ class MainLayoutView extends AutoUpdateView {
 		View.findDrawableById(DRAWABLE_MODE_ID).setText(mode);
 	}
 
-
-	// This function takes milli-seconds and returns a string of the format:
-	// mm:ss
-    function timeToDisplayText(timeInMs) {
-    	var time = Math.round(timeInMs / 1000.0);
-    	
-    	if (time instanceof Toybox.Lang.Double || time instanceof Toybox.Lang.Float) {
-			time = time.toNumber();
-		}
-		
-		var minutes = time / 60;  // division loses remainder  63 / 60 => 1
-		var seconds = time % 60;  // get the remainder         63 % 60 => 3
-
-		return "" + minutes + ":" + seconds.format("%02d");
-    }
 	
     // Call this function before calling the parent onUpdate function!
     // Otherwise the layout will not have the updated values and draw "old" values.
     // This function expects milli-seconds.
 	function setTimeText(timeInMs) {
-		View.findDrawableById(DRAWABLE_TIME_ID).setText(timeToDisplayText(timeInMs));        
+		View.findDrawableById(DRAWABLE_TIME_ID).setText(TextHelper.timeToDisplayText(timeInMs));        
     }
     
     // Call this function before calling the parent onUpdate function!
@@ -94,7 +79,7 @@ class MainLayoutView extends AutoUpdateView {
         if (lastDiveTime <= 0 ) {
             textFeldInfo.setText( "" + distance + mSuffix );
         } else {
-            textFeldInfo.setText(dtPrefix + " " + timeToDisplayText(lastDiveTime));
+            textFeldInfo.setText(dtPrefix + " " + TextHelper.timeToDisplayText(lastDiveTime));
         } 
         
 		AutoUpdateView.onUpdate(dc);

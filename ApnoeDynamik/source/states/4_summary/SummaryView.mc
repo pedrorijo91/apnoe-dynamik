@@ -46,7 +46,7 @@ class SummaryView  extends WatchUi.View {
 		
 		var textFeldDiveTime; // TODO -  Zeit der angezeigten Phase
         textFeldDiveTime = View.findDrawableById("zeitId");
-        textFeldDiveTime.setText("" + currentDiveTime);
+        textFeldDiveTime.setText(TextHelper.timeToDisplayText(currentDiveTime));
         debug("Current dive time: " + currentDiveTime);
 
 		var textFeldInfo;

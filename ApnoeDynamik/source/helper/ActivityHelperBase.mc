@@ -39,9 +39,9 @@ class ActivityHelperBase {
                 		count = MAX_NB_CHARS_FOR_STRINGS;
                 	}
 	                var fitField = session.createField(currentField.name,
-    	                                               i,
+    	                                               currentField.id,
         	                                           currentField.dataType,
-            	                                       {:mesgType=>currentField.mesgType, :count => count, :units=> currentField.units });
+            	                                       {:mesgType=>currentField.mesgType, :count => count });
             	                                       
             	    // store the activity field in our wrapper.
             	    currentField.field = fitField;

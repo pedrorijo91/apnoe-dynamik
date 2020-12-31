@@ -9,7 +9,7 @@ class PrepareState extends State {
     	
 		State.initialize();
 
-		var prepareDuration = currentTraining.prepareDuration;
+		var prepareDuration = currentTraining.prepareAndRelaxDurations[0];
 	   	countdown = new Countdown(self, prepareDuration);
 		
 		var view = new PrepareView(countdown);

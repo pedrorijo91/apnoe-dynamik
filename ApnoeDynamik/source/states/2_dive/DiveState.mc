@@ -28,7 +28,8 @@ class DiveState extends State {
     
     
     function isNextSummary() {
-		return (currentTrainingSession.round + 1) == currentTraining.rounds();
+    	// We increment the round when we leave the state.
+		return (currentTrainingSession.round + 1) >= currentTraining.rounds();
     }
     
     function switchToRelaxOrSummary() {

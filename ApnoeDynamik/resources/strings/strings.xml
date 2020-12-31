@@ -13,10 +13,6 @@
     <string id="alarm_beep">Alarm Beep</string>
     <string id="alarm_vibrate">Alarm Vibrate</string>
     
-    <string id="phase">Phase</string>
-    <string id="phase_data_label">phase</string>    
-    <string id="phase_unit_label">phase</string>
-    
     <string id="heartRatePrefix">hr</string>
     <string id="meterSuffix">m</string>
     <string id="lastDivePrefix">last dive</string>
@@ -25,6 +21,11 @@
 
     <string id="timePickerTitle">phase</string>
     <string id="timeSeparator">phase</string>
+    
+    <!-- Fit contributor strings -->
+    <string id="fitDescription">round</string>
+    <string id="fitDistance">distance</string>
+    <string id="fitDistanceUnit">m</string>    
     
     <!-- Setting strings -->
     

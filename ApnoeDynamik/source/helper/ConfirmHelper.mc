@@ -30,10 +30,8 @@ class ConfirmHelper extends WatchUi.ConfirmationDelegate {
     function onResponse(response) {
     	debug("Got response from confirmation dialog: " + response);
         if (response == WatchUi.CONFIRM_YES) {
-//        	WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         	onYes.invoke(); // onYes is a method object.  Calling invoke is equivalent to calling the function itself.
         } else {
-//        	WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         	onNo.invoke();
         }
         return true;

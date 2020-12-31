@@ -4,18 +4,16 @@
  	
  	// These durations are extracted from the settings.
  	// All times in ms.
- 	var prepareDuration;
- 	var relaxDurations;
+ 	var prepareAndRelaxDurations;
  	
  	var distance;
  	
  	function initialize() {
  		// Get settings and build information for a training.
- 		prepareDuration = 15000;
- 		
  		distance = 25;
  		
- 		relaxDurations = [
+ 		prepareAndRelaxDurations = [
+ 			15000, // prepare
 	 		85000,
 //	 		14000,
 //	 		13000,
@@ -25,6 +23,6 @@
  	}
  	
  	function rounds() {
- 		return relaxDurations.size();
+ 		return prepareAndRelaxDurations.size();
  	}
  }

@@ -11,7 +11,7 @@ class RelaxState extends State {
 		appActivityHelper.description.save("RELAX " + currentTrainingSession.round + 1);
 		
 
-		var relaxDuration = currentTraining.relaxDurations[currentTrainingSession.round];
+		var relaxDuration = currentTraining.prepareAndRelaxDurations[currentTrainingSession.round];
 		countdown = new Countdown(self, relaxDuration);
 		
 		WatchUi.switchToView(
