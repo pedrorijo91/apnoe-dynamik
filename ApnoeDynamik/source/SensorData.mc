@@ -13,6 +13,8 @@ class SensorData {
  
  
     function onSensor(sensorInfo) {
-    	currentHeartRate = sensorInfo.heartRate;
+    	if (sensorInfo != null && sensorInfo.heartRate != null) {
+    		currentHeartRate = sensorInfo.heartRate;
+    	}
     }
  }

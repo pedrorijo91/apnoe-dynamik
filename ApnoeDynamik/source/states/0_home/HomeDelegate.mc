@@ -1,3 +1,7 @@
+using Toybox.WatchUi;
+using Toybox.Time;
+
+
 class HomeDelegate extends DelegateBase {
 
 	var state;
@@ -16,4 +20,11 @@ class HomeDelegate extends DelegateBase {
     function onBack() {
     	Toybox.System.exit();
     }
+    
+    function onMenu() {
+    	debug("onMenu");
+    	
+		Menu.showMenu();
+		return true;
+	}
 }

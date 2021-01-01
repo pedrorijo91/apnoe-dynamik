@@ -33,7 +33,7 @@ class HomeView extends MainLayoutView {
         
         var textFeldZeit;
         textFeldZeit = View.findDrawableById("zeitId");
-        textFeldZeit.setText(TextHelper.timeToDisplayText(prepareZeit));
+        textFeldZeit.setText(TextHelper.msTimeToDisplayText(prepareZeit));
 
 
     	// Call the parent onUpdate function to redraw the layout

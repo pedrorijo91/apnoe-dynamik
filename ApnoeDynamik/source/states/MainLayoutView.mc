@@ -36,7 +36,7 @@ class MainLayoutView extends AutoUpdateView {
     // Otherwise the layout will not have the updated values and draw "old" values.
     // This function expects milli-seconds.
 	function setTimeText(timeInMs) {
-		View.findDrawableById(DRAWABLE_TIME_ID).setText(TextHelper.timeToDisplayText(timeInMs));        
+		View.findDrawableById(DRAWABLE_TIME_ID).setText(TextHelper.msTimeToDisplayText(timeInMs));        
     }
     
     // Call this function before calling the parent onUpdate function!
@@ -79,7 +79,7 @@ class MainLayoutView extends AutoUpdateView {
         if (lastDiveTime <= 0 ) {
             textFeldInfo.setText( "" + distance + mSuffix );
         } else {
-            textFeldInfo.setText(dtPrefix + " " + TextHelper.timeToDisplayText(lastDiveTime));
+            textFeldInfo.setText(dtPrefix + " " + TextHelper.msTimeToDisplayText(lastDiveTime));
         } 
         
 		AutoUpdateView.onUpdate(dc);
