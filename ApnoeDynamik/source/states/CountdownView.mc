@@ -3,7 +3,7 @@ using Toybox.Math;
 
 class CountdownView extends MainLayoutView {
 
-	var mode;  // TODO - mode + phasen NR.
+	var mode;
 	var countdown;
 	
     function initialize(_mode, _countdown) {
@@ -42,7 +42,7 @@ class CountdownView extends MainLayoutView {
     	var currentRound = currentTrainingSession.round;
     	var totalRounds = currentTraining.rounds();
     	
-   	    setModeText(mode);
+   	    setModeTextWithRoundNr(mode);
    		setTimeText(remainingTime);
     	
     	// Call the parent onUpdate function to redraw the layout
@@ -53,7 +53,7 @@ class CountdownView extends MainLayoutView {
 
 		if (remainingSeconds <= 5) {
 			AttentionHelper.beep(5000, 250);
-			AttentionHelper.displayOn(true);
+			AttentionHelper.backlightOnTimed(5000);
 			AttentionHelper.vibrate(100, 250);
     		graphicsHelper.drawBigCenteredNumber(dc, remainingSeconds, GraphicsHelper.MAIN_COLOR);
     	}

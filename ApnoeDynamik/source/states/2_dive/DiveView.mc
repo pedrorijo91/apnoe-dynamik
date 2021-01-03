@@ -21,7 +21,11 @@ class DiveView extends MainLayoutView {
     function onShow() {
   		debug("DiveView onShow");
   		autoUpdate(UPDATE_INTERVALL);
-  		MainLayoutView.onShow();    	
+  		MainLayoutView.onShow();
+  		
+		AttentionHelper.beep(2500, 3000);
+		AttentionHelper.backlightOnTimed(3000);
+		AttentionHelper.vibrate(100, 3000);
     }
 
 
@@ -40,7 +44,7 @@ class DiveView extends MainLayoutView {
     	var timeInState = calcTimeInState();
     	var timeInStateSeconds = Math.round(timeInState / 1000.0);
 
-		setModeText(DIVE); // TODO - + phasen NR.
+		setModeTextWithRoundNr(DIVE);
     	setTimeText(timeInState);
         
         // Call the parent onUpdate function to redraw the layout
@@ -54,13 +58,6 @@ class DiveView extends MainLayoutView {
     		graphicsHelper.drawImgCentered(dc, Rez.Drawables.countdownGo);
     		innerOn = /* 1; // wenn es NICHT plinken soll: */ (timeInStateSeconds.toNumber() + 1) % 2;  // divide by 2 and take the remainder ==> 1 % 2 == 1    2 % 2 == 0    3 % 2 == 1     4 % 2 == 0
     	}
-
-		if (timeInStateSeconds == 1) {  //TODO es geht bei 0 nur "vibrate"
-			AttentionHelper.beep(2500, 3000);
-			AttentionHelper.displayOn(true);
-			AttentionHelper.vibrate(100, 3000);
-//			firstTime = false;
-		}
     	
     	graphicsHelper.drawProgressInner(dc, innerOn, 1);
         graphicsHelper.drawProgressOuter(dc, currentRound, totalRounds);

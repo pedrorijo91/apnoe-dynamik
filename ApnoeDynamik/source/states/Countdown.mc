@@ -35,6 +35,9 @@ class Countdown {
 		_timer.start(method(:_onTimeExpired), _duration, false);
 		
 		var milliSecondsTillCompleteSecond = _duration % 1000;  // _duration will always be the remainig time.
+		if (milliSecondsTillCompleteSecond == 0) {
+			milliSecondsTillCompleteSecond = 1000;
+		}
 		_fullSecondTimer = new Timer.Timer();
 		_fullSecondTimer.start(method(:_fullSecondUpdate), milliSecondsTillCompleteSecond, false);
 	}

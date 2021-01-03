@@ -1,7 +1,7 @@
 using Toybox.WatchUi;
 
 class Menu {
-// TODOmax
+
 	static const PROP_DISTANCE = "propDistance";
 	static const PROP_PREPARE = "propPrepare";
 	static const PROP_ROUNDS = "propRounds";

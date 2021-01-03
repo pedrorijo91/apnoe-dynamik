@@ -6,10 +6,7 @@ class IntervalMenuItem extends NumberMenuItem {
 		NumberMenuItem.initialize(label, 1, 3, "", propertyId);
 	}
 	
-//TODOmax
 
-	
-	
 	function toSubLabel(value) {
 		switch(value) {
 			case 1: return WatchUi.loadResource(Rez.Strings.interfal1MenuText);

@@ -30,7 +30,13 @@ class MainLayoutView extends AutoUpdateView {
 	function setModeText(mode) {
 		View.findDrawableById(DRAWABLE_MODE_ID).setText(mode);
 	}
-
+	
+	// Call this function before calling the parent onUpdate function!
+    // Otherwise the layout will not have the updated values and draw "old" values.
+	function setModeTextWithRoundNr(mode) {
+		View.findDrawableById(DRAWABLE_MODE_ID).setText(mode + " " + currentTrainingSession.round + 1);
+	}
+	
 	
     // Call this function before calling the parent onUpdate function!
     // Otherwise the layout will not have the updated values and draw "old" values.
