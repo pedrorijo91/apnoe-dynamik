@@ -9,10 +9,13 @@
     <string id="phase3">RECREATION</string>
     <string id="phase4">SUMMARY</string>
 
-    
+    <!-- Prefix and Suffix strings -->
     <string id="heartRatePrefix">hr</string>
     <string id="meterSuffix">m</string>
     <string id="lastDivePrefix">last dive</string>
+    <string id="secSuffix">sec.</string>
+    <string id="roundsSuffix">rounds</string>
+    
     
     <string id="saveActivityQuestion">save activity?</string>
 
@@ -26,20 +29,24 @@
     <!-- Setting / Property strings -->
     <string id="settingmenutitel">settings</string>
 
-    <string id="propPrepare">Prepare Duration</string>
-    <string id="propRounds">Rounds</string>
-    <string id="propDistance">Distance</string>
-    <string id="propFirstRelax">First Relax Duration</string>
-    <string id="propRelaxReduce">Reduce Relax D. by</string>
-    <string id="propAdjustInterval">Reduce Relax D. every n rounds</string>
+    <string id="propDistance">distance</string>
+    <string id="propPrepare">preparation time</string>
+    <string id="propRounds">rounds</string>
+    <string id="propFirstRelax">first recreation</string>
+    <string id="propRelaxReduce">recreation reduction</string>
+    <string id="propAdjustInterval">reduction interval</string>
+    <string id="propLastRelax">last recreation</string>    
         
-    <string id="propAlarmBeep">Alarm Beep</string>
-    <string id="propAlarmVibrate">Alarm Vibrate</string>
+    <string id="propAlarmBeep">alarm beep</string>
+    <string id="propAlarmVibrate">alarm vibrate</string>
     
+	<string id="interfal1MenuText">every recreation</string>
+	<string id="interfal2MenuText">every 2nd recreation</string>
+	<string id="interfal3MenuText">every 3rd recreation</string>
 
     <string id="timePickerTitle">phase</string>
     <string id="timeSeparator">phase</string>
     
-    <!-- ENDE Setting strings -->
+   
     
 </strings>

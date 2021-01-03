@@ -55,9 +55,11 @@ class DiveView extends MainLayoutView {
     		innerOn = /* 1; // wenn es NICHT plinken soll: */ (timeInStateSeconds.toNumber() + 1) % 2;  // divide by 2 and take the remainder ==> 1 % 2 == 1    2 % 2 == 0    3 % 2 == 1     4 % 2 == 0
     	}
 
-		if (firstTime) {
-			AttentionHelper.vibrate(100, 500);
-			firstTime = false;
+		if (timeInStateSeconds == 1) {  //TODO es geht bei 0 nur "vibrate"
+			AttentionHelper.beep(2500, 3000);
+			AttentionHelper.displayOn(true);
+			AttentionHelper.vibrate(100, 3000);
+//			firstTime = false;
 		}
     	
     	graphicsHelper.drawProgressInner(dc, innerOn, 1);

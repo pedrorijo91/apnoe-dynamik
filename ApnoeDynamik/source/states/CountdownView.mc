@@ -52,9 +52,9 @@ class CountdownView extends MainLayoutView {
         graphicsHelper.drawProgressOuter(dc, currentRound, totalRounds);
 
 		if (remainingSeconds <= 5) {
-			AttentionHelper.beep();
-			AttentionHelper.displayOn();
-			AttentionHelper.vibrate(50, 250);
+			AttentionHelper.beep(5000, 250);
+			AttentionHelper.displayOn(true);
+			AttentionHelper.vibrate(100, 250);
     		graphicsHelper.drawBigCenteredNumber(dc, remainingSeconds, GraphicsHelper.MAIN_COLOR);
     	}
     }

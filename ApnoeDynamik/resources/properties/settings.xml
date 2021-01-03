@@ -4,6 +4,10 @@
    
 
     <settings>
+         <setting propertyKey="@Properties.propDistance" title="@Strings.propDistance">
+            <settingConfig type="numeric" />
+        </setting>
+        
         <setting propertyKey="@Properties.propPrepare" title="@Strings.propPrepare">
             <settingConfig type="numeric" />
         </setting>
@@ -11,11 +15,7 @@
         <setting propertyKey="@Properties.propRounds" title="@Strings.propRounds">
             <settingConfig type="numeric" />
         </setting>
-
-        <setting propertyKey="@Properties.propDistance" title="@Strings.propDistance">
-            <settingConfig type="numeric" />
-        </setting>
-        
+       
         <setting propertyKey="@Properties.propFirstRelax" title="@Strings.propFirstRelax">
             <settingConfig type="numeric" />
         </setting>
@@ -28,17 +28,18 @@
             <settingConfig type="numeric" />
         </setting>
 
-        <!--
+        <setting propertyKey="@Properties.propAlarmBeep" title="@Strings.propAlarmBeep">
+            <settingConfig type="boolean" />
+        </setting>
+                
+        <setting propertyKey="@Properties.propAlarmVibrate" title="@Strings.propAlarmVibrate">
+            <settingConfig type="boolean" />
+        </setting>
+  
+   <!--
         <setting propertyKey="@Properties.alarm" title="@Strings.alarm_title">
             <settingConfig type="boolean" />
         </setting>
                 
-        <setting propertyKey="@Properties.alarmBeep" title="@Strings.propalarm_beep">
-            <settingConfig type="boolean" />
-        </setting>
-                
-        <setting propertyKey="@Properties.alarmVibrate" title="@Strings.alarm_vibrate">
-            <settingConfig type="boolean" />
-        </setting>
                 -->
     </settings>

@@ -13,8 +13,8 @@
  		distance = 25;
  		
  		prepareAndRelaxDurations = [
- 			15000, // prepare
-	 		85000,
+ 			35000, // prepare
+	 		35000,
 //	 		14000,
 //	 		13000,
 //	 		12000,

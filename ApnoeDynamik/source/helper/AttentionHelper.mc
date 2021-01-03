@@ -9,10 +9,16 @@ class AttentionHelper {
         }
 	}
 	
-    static function beep() {
-        if (Attention has :playTone) {
-            Attention.playTone(Attention.TONE_LOUD_BEEP);
+    static function beep(frequency, duration) {
+        if (Attention has :ToneProfile) {
+            Attention.ToneProfile([new Attention.ToneProfile(frequency, duration)]);
+         	Attention.playTone({:toneProfile=>toneProfile});   
         }
+    	
+    	if (Attention has :playTone) {
+   			Attention.playTone(Attention.TONE_LOUD_BEEP);
+		}
+    
     }
 
     static function vibrate(dutyCycle, duration) {
@@ -20,4 +26,13 @@ class AttentionHelper {
             Attention.vibrate([new Attention.VibeProfile(dutyCycle, duration)]);
         }
     }	
+
+//    static function vibrate2(dutyCycle, duration) {
+//        if (Attention has :vibrate) {
+//            Attention.vibrate([new Attention.VibeProfile(dutyCycle, duration)]);
+//        }
+//    }	
+
+
+
 }

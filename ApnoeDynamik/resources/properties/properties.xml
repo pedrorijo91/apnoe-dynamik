@@ -1,11 +1,11 @@
     <properties>
+        <property id="propDistance" type="number">25</property>
         <property id="propPrepare" type="number">120</property>
         <property id="propRounds" type="number">8</property>
-        <property id="propDistance" type="number">25</property>
-        <property id="propFirstRelax" type="number">120</property>
+        <property id="propFirstRelax" type="number">90</property>
         <property id="propRelaxReduce" type="number">10</property>
         <property id="propAdjustInterval" type="number">1</property>
-        <!-- <property id="alarm" type="boolean">true</property> -->
-        <!-- <property id="alarmBeep" type="boolean">true</property> -->
-        <!-- <property id="alarmVibrate" type="boolean">true</property> -->
+        <property id="propAlarmBeep" type="boolean">true</property>
+        <property id="propAlarmVibrate" type="boolean">true</property>
+         <!-- <property id="alarm" type="boolean">true</property> -->
     </properties>

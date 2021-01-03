@@ -19,13 +19,26 @@ class LastRelaxDurationMenuItem extends  WatchUi.MenuItem  {
 		setSubLabel(lastRelaxDuration());
 	}
 	
+		
 	function lastRelaxDuration() {
 		debug("Calculate last relax duration.");
-		var prepare = SettingsHelper.get(Menu.PROP_PREPARE).toFloat();
-		var x = 8;
-		var floatX = x.toFloat();
-		var floatX2 = x * 1.0;
-		return "" + Math.ceil(floatX / 3).toNumber();
+		
+		var firstRelax = SettingsHelper.get(Menu.PROP_FIRST_RELAX);
+		var relaxReduce = SettingsHelper.get(Menu.PROP_RELAX_REDUCE);
+		var rounds = SettingsHelper.get(Menu.PROP_ROUNDS).toFloat();
+		var interval = SettingsHelper.get(Menu.PROP_ADJUST_INTERVAL).toFloat();
+		debug ("firstRelax = " + firstRelax);
+		debug ("relaxReduce = " + relaxReduce);
+		debug ("rounds = " + rounds);
+		debug ("interval = " + interval);
+				
+		var roundsInterval = Math.ceil( rounds / interval ).toNumber(); // Ergebnis wir immer auf eine ganze Zahl aufgerundet
+		debug ("roundsInterval = " + roundsInterval);
+		
+		var rTime = firstRelax - (relaxReduce * (roundsInterval - 1 )); // Zeit in Sekunden
+		debug ("rTime = " + rTime);
+		
+		return TextHelper.sTimeToDisplayText(rTime);
 	}
 	
 	function onMenuClose() {
