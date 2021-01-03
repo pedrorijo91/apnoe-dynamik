@@ -17,7 +17,7 @@ class PrepareView extends CountdownView {
     	CountdownView.onUpdate(dc);
     	
     	var remainingTime = countdown.remainingTime();
-    	var remainingSeconds = Math.round(remainingTime / 1000.0);
+    	var remainingSeconds = Math.round(remainingTime / 1000.0).toNumber();
     	
     	// TODOMAX (MK2 verwenden.)
     	if (remainingSeconds == 30 || remainingSeconds == 20) {
@@ -38,8 +38,8 @@ class PrepareView extends CountdownView {
     			{:percent => 100, :ms => 1000}
     		]);
     		
-    	}
-		if (remainingSeconds == 10 ) {
+    	} else if (remainingSeconds > 30 && (remainingSeconds % 30) == 0 || 
+    			   remainingSeconds == 10) {
 			AttentionHelper.beep(2500, 250);
 			AttentionHelper.vibrate(100, 250);
       	}  

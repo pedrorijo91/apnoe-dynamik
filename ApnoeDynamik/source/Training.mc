@@ -20,8 +20,20 @@
 	static const PROP_ADJUST_INTERVAL = "propAdjustInterval";
 	*/
 	
-		
+	
+	static function hasRoundValidDuration(n) {
+		return _calculateSecondsDurationForRound(n) > 0;
+	}
+	
 	static function calculateSecondsDurationForRound(n) {
+		var rTime = _calculateSecondsDurationForRound(n);
+		if (rTime <= 0) {
+			return 1;
+		}
+		return rTime; 
+	}
+	
+	static function _calculateSecondsDurationForRound(n) {
 		var firstRelax = SettingsHelper.get(Menu.PROP_FIRST_RELAX);
 		var relaxReduce = SettingsHelper.get(Menu.PROP_RELAX_REDUCE);
 		var interval = SettingsHelper.get(Menu.PROP_ADJUST_INTERVAL).toFloat();

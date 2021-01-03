@@ -36,8 +36,8 @@ class CountdownView extends MainLayoutView {
     	var remainingTime = countdown.remainingTime();
     	var stateDuration = countdown.duration();
     	
-		var timeInStateSeconds = Math.round(timeInState / 1000.0);
-    	var remainingSeconds = Math.round(remainingTime / 1000.0);
+		var timeInStateSeconds = Math.round(timeInState / 1000.0).toNumber();
+    	var remainingSeconds = Math.round(remainingTime / 1000.0).toNumber();
     	
     	var currentRound = currentTrainingSession.round;
     	var totalRounds = currentTraining.rounds();
@@ -51,9 +51,13 @@ class CountdownView extends MainLayoutView {
         graphicsHelper.drawProgressInnerInverted(dc, timeInState, stateDuration);
         graphicsHelper.drawProgressOuter(dc, currentRound, totalRounds);
 
+
+		if (remainingSeconds == 5) {
+			AttentionHelper.backlightOnTimed(5000);
+		}
+
 		if (remainingSeconds <= 5) {
 			AttentionHelper.beep(5000, 250);
-			AttentionHelper.backlightOnTimed(5000);
 			AttentionHelper.vibrate(100, 250);
     		graphicsHelper.drawBigCenteredNumber(dc, remainingSeconds, GraphicsHelper.MAIN_COLOR);
     	}

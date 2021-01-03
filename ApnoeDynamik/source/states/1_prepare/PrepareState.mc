@@ -28,7 +28,7 @@ class PrepareState extends State {
     	
     	
     	appActivityHelper.startRecording();
-    	appActivityHelper.distance.save(25); // TODO
+    	appActivityHelper.distance.save(currentTraining.distance);
 	}
 		
 		

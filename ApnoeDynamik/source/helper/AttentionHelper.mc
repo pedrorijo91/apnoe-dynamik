@@ -12,12 +12,23 @@ class TimedBacklight {
 		Attention.backlight(true);		
 	}
 	
+	hidden function stopTimer() {
+		if (backlightTimer != null) {
+			backlightTimer.stop();
+			backlightTimer = null;
+		}
+	}
+	 
+	function abort() {
+		debug("Aborting");
+		stopTimer();
+	}
+	
 	function turnBacklightOff() {
 		debug("Turning backlight off");
 		Attention.backlight(false);
 		// Shouldn't be necessary.  Just to be sure that the timer and this object is released (and garbage collected).
-		backlightTimer.stop();
-		backlightTimer = null;
+		stopTimer();
 	}
 }
 
@@ -30,10 +41,16 @@ class AttentionHelper {
             Attention.backlight(onOrOff);
         }
 	}
+	
+	static var currentBacklightTimer;
 
 	static function backlightOnTimed(duration) {
 		if (Attention has :backlight) {
-			var timedBacklight = new TimedBacklight(duration);
+			if (currentBacklightTimer != null) {
+				currentBacklightTimer.abort();
+			}	
+			currentBacklightTimer = new TimedBacklight(duration);
+				
 		}
 	}
 	

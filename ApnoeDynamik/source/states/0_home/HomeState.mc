@@ -9,8 +9,7 @@ class HomeState extends State {
 		
 		currentTraining = new Training();
 		currentTrainingSession = null;
-		
-		// TODO stopRecording  clear Recording;
+
 		appActivityHelper.stopAndClearRecording();
 		
 		// Keep the AppView on the stack.  Probably not necessary.

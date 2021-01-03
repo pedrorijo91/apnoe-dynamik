@@ -42,7 +42,7 @@ class DiveView extends MainLayoutView {
     // Update the view
     function onUpdate(dc) {
     	var timeInState = calcTimeInState();
-    	var timeInStateSeconds = Math.round(timeInState / 1000.0);
+    	var timeInStateSeconds = Math.round(timeInState / 1000.0).toNumber();
 
 		setModeTextWithRoundNr(DIVE);
     	setTimeText(timeInState);
@@ -56,7 +56,7 @@ class DiveView extends MainLayoutView {
     	var innerOn = 0;
     	if (timeInStateSeconds < DISPLAY_GO_DURATION) {
     		graphicsHelper.drawImgCentered(dc, Rez.Drawables.countdownGo);
-    		innerOn = /* 1; // wenn es NICHT plinken soll: */ (timeInStateSeconds.toNumber() + 1) % 2;  // divide by 2 and take the remainder ==> 1 % 2 == 1    2 % 2 == 0    3 % 2 == 1     4 % 2 == 0
+    		innerOn = /* 1; // wenn es NICHT plinken soll: */ (timeInStateSeconds + 1) % 2;  // divide by 2 and take the remainder ==> 1 % 2 == 1    2 % 2 == 0    3 % 2 == 1     4 % 2 == 0
     	}
     	
     	graphicsHelper.drawProgressInner(dc, innerOn, 1);
