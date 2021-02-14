@@ -1,3 +1,4 @@
+using Toybox.System; //max
 
 // The current training session will always be accessible with this variable.
 // currentTrainingSession is initialized by the HomeState.

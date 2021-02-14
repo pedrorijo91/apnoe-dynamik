@@ -1,3 +1,5 @@
+using Toybox.WatchUi;
+
 class PrepareState extends State {
 	
 	var countdown;
@@ -29,6 +31,7 @@ class PrepareState extends State {
     	
     	appActivityHelper.startRecording();
     	appActivityHelper.distance.save(currentTraining.distance);
+    	appActivityHelper.description.save(WatchUi.loadResource(Rez.Strings.phase1));
 	}
 		
 		

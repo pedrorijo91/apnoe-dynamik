@@ -7,16 +7,26 @@ class HomeState extends State {
 	  	
 		State.initialize();
 		
-		currentTraining = new Training();
+		reloadTraining();
 		currentTrainingSession = null;
 
+		// In case we return from the prepare state (or start a new training-session -- shouldn't be necessary, just to be safe)
 		appActivityHelper.stopAndClearRecording();
 		
 		// Keep the AppView on the stack.  Probably not necessary.
 		WatchUi.pushView(
-			new HomeView(),
+			new HomeView(self),
 			new HomeDelegate(self),
 			WatchUi.SLIDE_IMMEDIATE);
+	}
+	
+	function reloadTraining() {
+		debug("Reloading Training");
+		currentTraining = new Training(); 	
+	}
+	
+	function viewReloaded() {
+		reloadTraining();	
 	}
 	
     function switchToPrepare() {

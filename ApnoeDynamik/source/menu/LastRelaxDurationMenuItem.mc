@@ -27,7 +27,7 @@ class LastRelaxDurationMenuItem extends  WatchUi.MenuItem  {
 		if (Training.hasRoundValidDuration(rounds)) {
 			return TextHelper.sTimeToDisplayText(rTime);
 		} else {
-			return TextHelper.sTimeToDisplayText(rTime) + " (ERROR)";
+			return TextHelper.sTimeToDisplayText(rTime) + WatchUi.loadResource(Rez.Strings.propLastRelaxError);
 		}
 	}
 	

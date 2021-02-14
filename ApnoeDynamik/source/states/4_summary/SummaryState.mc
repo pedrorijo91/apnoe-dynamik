@@ -7,7 +7,6 @@ class SummaryState extends State {
 		
 		State.initialize();
 
-		appActivityHelper.addLap();
 		appActivityHelper.stopRecording();
 				
 		var summaryView = new SummaryView();

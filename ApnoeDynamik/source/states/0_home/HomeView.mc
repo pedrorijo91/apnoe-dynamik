@@ -5,9 +5,11 @@ using Toybox.Graphics;
 class HomeView extends MainLayoutView {
 	
 	const UPDATE_INTERVALL = 1000;  // Update every second.
+	var state;
+	var firstOnShow = true;
 
-
-    function initialize() {
+    function initialize(_state) {
+    	state = _state;
     	MainLayoutView.initialize();
     }
 
@@ -17,7 +19,13 @@ class HomeView extends MainLayoutView {
     function onShow() {
   		debug("HomeView onShow");
   		autoUpdate(UPDATE_INTERVALL);  // We update the homeView because of the heart-rate.
-  		MainLayoutView.onShow();    	
+  		MainLayoutView.onShow();
+  		
+  		if (!firstOnShow) {
+  			state.viewReloaded();
+  		} else {
+  			firstOnShow = false;
+  		}	
     }
     
 	

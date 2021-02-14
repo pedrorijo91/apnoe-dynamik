@@ -1,3 +1,5 @@
+using Toybox.WatchUi;
+
 // IntervallMenuItem is a menu entry which makes only sense for this App
 // => not in helpers directory.
 

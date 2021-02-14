@@ -1,3 +1,5 @@
+using Toybox.WatchUi;
+
 class DiveState extends State {
 
 	function initialize() {
@@ -5,8 +7,10 @@ class DiveState extends State {
 	
 		State.initialize();
 		
+		appActivityHelper.diveActive.save(0);
 		appActivityHelper.addLap();
-		appActivityHelper.description.save("DIVE " + currentTrainingSession.round + 1);
+		appActivityHelper.description.save(WatchUi.loadResource(Rez.Strings.phase2) + (currentTrainingSession.round + 1));
+		appActivityHelper.diveActive.save(1);
 		
 		// Store startTime in training
 		

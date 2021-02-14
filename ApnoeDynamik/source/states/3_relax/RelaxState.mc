@@ -1,3 +1,5 @@
+using Toybox.WatchUi;
+
 class RelaxState extends State {
 
 	var countdown;
@@ -7,8 +9,10 @@ class RelaxState extends State {
 		
 		State.initialize();
 
+		appActivityHelper.diveActive.save(1);
 		appActivityHelper.addLap();
-		appActivityHelper.description.save("RELAX " + currentTrainingSession.round + 1);
+		appActivityHelper.description.save(WatchUi.loadResource(Rez.Strings.phase3) + (currentTrainingSession.round + 1));
+		appActivityHelper.diveActive.save(0);
 		
 
 		var relaxDuration = currentTraining.prepareAndRelaxDurations[currentTrainingSession.round];

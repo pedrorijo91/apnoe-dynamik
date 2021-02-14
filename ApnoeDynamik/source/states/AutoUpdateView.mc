@@ -14,6 +14,7 @@ class AutoUpdateView extends WatchUi.View {
 	// Implement onTimer() to get a callback as well.
 	function autoUpdate(intervall) {
     	if (timer == null) {
+    		debug("New Timer for autoUpdate");
 			timer = new Timer.Timer();
 		} else {
 			timer.stop();
@@ -36,6 +37,7 @@ class AutoUpdateView extends WatchUi.View {
 	// We stop and remove our timer here.
 	function onHide() {
 	    debug("StateView onHide");
+   		debug("Releasing autoUpdate Timer.");
 		if (timer != null) {
 			timer.stop();
 		}

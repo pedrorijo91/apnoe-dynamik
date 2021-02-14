@@ -4,8 +4,8 @@ class State {
 	
 	public static var activeState;
 	
-	static var training;
-	static var trainingSession;
+//	static var training;
+//	static var trainingSession;
 	
 	var stateStartedAt;
 	

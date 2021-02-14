@@ -1,5 +1,5 @@
 <strings>
-    <string id="AppName">Apnoea Dynamic</string>
+    <string id="AppName">Apnea Dynamic</string>
 
     <string id="prompt">click the menu button</string>
 
@@ -21,9 +21,23 @@
 
     
     <!-- Fit contributor strings -->
-    <string id="fitDescription">round</string>
-    <string id="fitDistance">distance</string>
-    <string id="fitDistanceUnit">m</string>    
+    <string id="fitTitleGraph">phaseChartTitle</string>
+    <string id="fitDataGraph">dataGraph</string>
+    <string id="fitUnitGraph">dive (if 1)</string>
+    
+    
+    <string id="fitDistanceDataSumm">distance</string>
+    <string id="fitDistanceUnitSumm">m</string>    
+ 
+ 	<string id="fitDataLap">dataLap</string>
+ 	<string id="fitUnitLap">unitLap</string>
+ 
+ 
+ 
+    <!-- App Activity Helper -->
+ 	<string id="aahDesc">xxx-01</string>
+    <string id="aahDescGraph">xxx-02</string>
+    <string id="aahDescDist">xxx-03</string>
     
     
     <!-- Setting / Property strings -->
@@ -35,7 +49,9 @@
     <string id="propFirstRelax">first recreation</string>
     <string id="propRelaxReduce">recreation reduction</string>
     <string id="propAdjustInterval">reduction interval</string>
-    <string id="propLastRelax">last recreation</string>    
+    <string id="propLastRelax">last recreation</string>
+    
+    <string id="propLastRelaxError">Warning: last recreation time is below zero!</string>   
         
     <string id="propAlarmBeep">alarm beep</string>
     <string id="propAlarmVibrate">alarm vibrate</string>
@@ -48,5 +64,10 @@
     <string id="timeSeparator">phase</string>
     
    
+   
+   
+    <string id="phase">Phase</string>
+    <string id="phase_data_label">phase</string>    
+    <string id="phase_unit_label">phase</string>
     
 </strings>

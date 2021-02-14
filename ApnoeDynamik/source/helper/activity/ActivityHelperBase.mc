@@ -11,7 +11,9 @@ class ActivityHelperBase {
 		
 	static var fields;
 	
-	function initialize(_fields) {
+	// See https://developer.garmin.com/connect-iq/api-docs/Toybox/ActivityRecording.html for possible types
+	// Example: ActivityRecording.SPORT_SWIMMING and ActivityRecording.SUB_SPORT_GENERIC
+	function initialize(_fields, activityType, activitySubType) {
 		fields = _fields;
 	}
 
@@ -24,7 +26,7 @@ class ActivityHelperBase {
             	session = ActivityRecording.createSession(            // set up recording session
                 	{
                     	:name=> activityname,                           // set session name
-                        :sport=> ActivityRecording.SPORT_GENERIC,       // set sport type
+                        :sport=> ActivityRecording.SPORT_SWIMMING,       // set sport type
                         :subSport=> ActivityRecording.SUB_SPORT_GENERIC // set sub sport type
                     }
                 );
@@ -38,11 +40,21 @@ class ActivityHelperBase {
                 	if (currentField.dataType == FitContributor.DATA_TYPE_STRING) {
                 		count = MAX_NB_CHARS_FOR_STRINGS;
                 	}
-	                var fitField = session.createField(currentField.name,
-    	                                               currentField.id,
+                	var id = currentField.id;
+                	var fitField;
+                	if (id >= 0) {
+	                 	fitField = session.createField(currentField.name,
+	                 	                               id,
         	                                           currentField.dataType,
-            	                                       {:mesgType=>currentField.mesgType, :count => count });
-            	                                       
+            	                                       {:mesgType => currentField.mesgType, :count => count});
+					} else {
+						id = -id;
+						fitField = session.createField(currentField.name,
+	                 	                               id,
+        	                                           currentField.dataType,
+            	                                       {:nativeNum => id, :mesgType => currentField.mesgType, :count => count});
+					}            	                                       
+            	                                      
             	    // store the activity field in our wrapper.
             	    currentField.field = fitField;
             	    

@@ -1,8 +1,18 @@
 <fitContributions>
-    <fitField id="0" displayInChart="true" sortOrder = "0" precision="0"
-     chartTitle="@Strings.fitDescription" dataLabel="@Strings.fitDescription"
-     unitLabel="@Strings.fitDescription" fillColor="#FF0000" />
-    <fitField id="1" displayInChart="true" sortOrder = "0" precision="0"
-     chartTitle="@Strings.fitDistance" dataLabel="@Strings.fitDistance"
-     unitLabel="@Strings.fitDistanceUnit" fillColor="#0000FF" />
+
+<!-- https://developer.garmin.com/connect-iq/core-topics/activity-recording/ -->
+
+	<!-- graph (record) fields -->
+	<fitField id="0" displayInChart="true" sortOrder="0" precision="0" chartTitle="@Strings.fitTitleGraph" dataLabel="@Strings.fitDataGraph" unitLabel="@Strings.fitUnitGraph" fillColor="#0000FF" />
+
+	
+	<!-- summary (session) fields -->
+	<fitField id="44" displayInActivitySummary="true" sortOrder="2" precision="0" dataLabel="@Strings.fitDistanceDataSumm" unitLabel="@Strings.fitDistanceUnitSumm" />
+
+
+	<!-- laps (lap) fields fields -->
+	
+	<!-- "DIVE 1",... lap data -->
+	<fitField id="2" displayInActivityLaps="true" sortOrder="1" precision="0" dataLabel="@Strings.fitDataLap" unitLabel="@Strings.fitUnitLap" />
+
 </fitContributions>

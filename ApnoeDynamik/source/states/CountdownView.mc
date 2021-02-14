@@ -28,7 +28,7 @@ class CountdownView extends MainLayoutView {
     	countdown.fullSecondListen(self);
     	MainLayoutView.onShow();
     }
-    
+   
     	
     // Update the view
     function onUpdate(dc) {
@@ -53,11 +53,12 @@ class CountdownView extends MainLayoutView {
 
 
 		if (remainingSeconds == 5) {
-			AttentionHelper.backlightOnTimed(5000);
+			AttentionHelper.backlight(true);
+			//AttentionHelper.backlightOnTimed(5000);
 		}
 
 		if (remainingSeconds <= 5) {
-			AttentionHelper.beep(5000, 250);
+			AttentionHelper.beep(2000, 250);
 			AttentionHelper.vibrate(100, 250);
     		graphicsHelper.drawBigCenteredNumber(dc, remainingSeconds, GraphicsHelper.MAIN_COLOR);
     	}

@@ -1,8 +1,10 @@
 using Toybox.WatchUi;
+using Toybox.Graphics;
+
 
 class SummaryView  extends WatchUi.View {
 
-	const SUMMARY = WatchUi.loadResource(Rez.Strings.phase4);
+	const SUMMARY = "Test4"; //WatchUi.loadResource(Rez.Strings.phase4); TODOmax
 
 	hidden var currentlyDisplayedDive = 0;
 	hidden var numberOfSavedDiveTimes;
@@ -54,8 +56,11 @@ class SummaryView  extends WatchUi.View {
         textFeldInfo.setText("Phase"); // TODO - Name der angezeigten Phase
 		
 	   	
-
 		WatchUi.View.onUpdate(dc);
+		
+        graphicsHelper.drawProgressInner(dc, 1, 1);
+        graphicsHelper.drawProgressOuter(dc, 1, 1);		
+		
   }
 
 }

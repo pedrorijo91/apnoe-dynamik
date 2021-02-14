@@ -3,7 +3,7 @@ using Toybox.Math;
 
 class PrepareView extends CountdownView {
 
-	const PREPARE = WatchUi.loadResource(Rez.Strings.phase1);
+	const PREPARE = "Test1"; //WatchUi.loadResource(Rez.Strings.phase1); TODOmax
 
 	var multiBeepTimer;
 
@@ -23,24 +23,24 @@ class PrepareView extends CountdownView {
     	if (remainingSeconds == 30 || remainingSeconds == 20) {
     	
     		AttentionHelper.multiBeep([
-    			{:freq => 2000, :ms => 250},
+    			{:freq => 1800, :ms => 250},
     			{:freq => 0, :ms => 250},
-    			{:freq => 2000, :ms => 250},
+    			{:freq => 1800, :ms => 250},
     			{:freq => 0, :ms => 250},
-    			{:freq => 2000, :ms => 250}
+    			{:freq => 1800, :ms => 250}
     		]);
     			
     		AttentionHelper.multiVibrate([
-    			{:percent => 100, :ms => 1000},
-    			{:percent => 0, :ms => 1000},
-    			{:percent => 100, :ms => 1000},
-    			{:percent => 0, :ms => 1000},
-    			{:percent => 100, :ms => 1000}
+    			{:percent => 100, :ms => 250},
+    			{:percent => 0, :ms => 250},
+    			{:percent => 100, :ms => 250},
+    			{:percent => 0, :ms => 250},
+    			{:percent => 100, :ms => 250}
     		]);
     		
     	} else if (remainingSeconds > 30 && (remainingSeconds % 30) == 0 || 
     			   remainingSeconds == 10) {
-			AttentionHelper.beep(2500, 250);
+			AttentionHelper.beep(2000, 250);
 			AttentionHelper.vibrate(100, 250);
       	}  
     }

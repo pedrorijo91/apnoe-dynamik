@@ -1,18 +1,20 @@
 using Toybox.WatchUi;
 
+
 class DiveView extends MainLayoutView {
 
 	const DISPLAY_GO_DURATION = 3; // Anzeige des "GO" nach Countown in sec.
-	const DIVE = WatchUi.loadResource(Rez.Strings.phase2);
+	const DIVE = "test2"; //WatchUi.loadResource(Rez.Strings.phase2); TODOmax
 	const UPDATE_INTERVALL = 1000;  // Update every second.
 	
 	var stateStartedAt;
-	
+
 	var firstTime = true;
 	
+		
     function initialize(_stateStartedAt) {
     	stateStartedAt = _stateStartedAt;
-    	MainLayoutView.initialize();
+    	MainLayoutView.initialize();   	
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -24,8 +26,8 @@ class DiveView extends MainLayoutView {
   		MainLayoutView.onShow();
   		
 		AttentionHelper.beep(2500, 3000);
-		AttentionHelper.backlightOnTimed(3000);
 		AttentionHelper.vibrate(100, 3000);
+		AttentionHelper.backlight(true);
     }
 
 
@@ -57,6 +59,10 @@ class DiveView extends MainLayoutView {
     	if (timeInStateSeconds < DISPLAY_GO_DURATION) {
     		graphicsHelper.drawImgCentered(dc, Rez.Drawables.countdownGo);
     		innerOn = /* 1; // wenn es NICHT plinken soll: */ (timeInStateSeconds + 1) % 2;  // divide by 2 and take the remainder ==> 1 % 2 == 1    2 % 2 == 0    3 % 2 == 1     4 % 2 == 0
+    	}
+    	
+    	if (timeInStateSeconds == 3) {
+    		AttentionHelper.backlight(false);
     	}
     	
     	graphicsHelper.drawProgressInner(dc, innerOn, 1);

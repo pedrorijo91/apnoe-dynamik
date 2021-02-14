@@ -1,6 +1,4 @@
-using Toybox.WatchUi;
 using Toybox.Time;
-
 
 class HomeDelegate extends DelegateBase {
 

@@ -26,6 +26,11 @@ class ActivityField {
 	}
 	
 	function save(value) {
-		field.setData(value);
+		debug("Saving " + name + " value: " + value);
+		if (field != null) {
+			field.setData(value);
+		} else {
+			debug("Recording hasn't started yet.  Ignoring saving of value.");
+		}
 	}
 }

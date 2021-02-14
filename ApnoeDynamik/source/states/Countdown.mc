@@ -31,6 +31,7 @@ class Countdown {
 	
 	// duration in ms
 	function _startTimer(_duration) {
+		debug ("new Countdown Timer total duration");
 		_timer = new Timer.Timer();
 		_timer.start(method(:_onTimeExpired), _duration, false);
 		
@@ -38,6 +39,7 @@ class Countdown {
 		if (milliSecondsTillCompleteSecond == 0) {
 			milliSecondsTillCompleteSecond = 1000;
 		}
+		debug ("new Countdown Timer complete seconds");
 		_fullSecondTimer = new Timer.Timer();
 		_fullSecondTimer.start(method(:_fullSecondUpdate), milliSecondsTillCompleteSecond, false);
 	}
@@ -46,11 +48,13 @@ class Countdown {
 		if (_timer != null) {
 			_timer.stop();
 		}
+		debug ("Releasing Countdown timer.");
 		_timer = null;
 		
 		if (_fullSecondTimer != null) {
 			_fullSecondTimer.stop();
 		}
+		debug ("Releasing complete seconds timer.");
 		_fullSecondTimer = null;
 	}
 	
