@@ -7,7 +7,7 @@
 
 	
 	<!-- summary (session) fields -->
-	<fitField id="44" displayInActivitySummary="true" sortOrder="2" precision="0" dataLabel="@Strings.fitDistanceDataSumm" unitLabel="@Strings.fitDistanceUnitSumm" />
+	<fitField id="1" displayInActivitySummary="true" sortOrder="2" precision="0" dataLabel="@Strings.fitDistanceDataSumm" unitLabel="@Strings.fitDistanceUnitSumm" />
 
 
 	<!-- laps (lap) fields fields -->

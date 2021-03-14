@@ -19,6 +19,8 @@ class PrepareView extends CountdownView {
     	var remainingTime = countdown.remainingTime();
     	var remainingSeconds = Math.round(remainingTime / 1000.0).toNumber();
     	
+    	var isStartDuration = remainingSeconds == (countdown.duration() / 1000.0).toNumber();
+    	
     	if (remainingSeconds == 30 || remainingSeconds == 20) {
     	
     		AttentionHelper.multiBeep([
@@ -37,7 +39,7 @@ class PrepareView extends CountdownView {
     			{:percent => 100, :ms => 250}
     		]);
     		
-    	} else if (remainingSeconds > 30 && (remainingSeconds % 30) == 0 || 
+    	} else if (remainingSeconds > 30 && (remainingSeconds % 30) == 0 && !isStartDuration || 
     			   remainingSeconds == 10) {
 			AttentionHelper.beep(2000, 250);
 			AttentionHelper.vibrate(100, 250);

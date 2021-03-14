@@ -7,6 +7,8 @@ class SummaryState extends State {
 		
 		State.initialize();
 
+		appActivityHelper.addLap();
+		appActivityHelper.description.save("Enter summary"); // ToDo Max resources...
 		appActivityHelper.stopRecording();
 				
 		var summaryView = new SummaryView();

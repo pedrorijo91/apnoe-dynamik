@@ -26,7 +26,7 @@
     <string id="fitUnitGraph">dive (if 1)</string>
     
     
-    <string id="fitDistanceDataSumm">distance</string>
+    <string id="fitDistanceDataSumm">distance1</string>
     <string id="fitDistanceUnitSumm">m</string>    
  
  	<string id="fitDataLap">dataLap</string>
@@ -35,9 +35,9 @@
  
  
     <!-- App Activity Helper -->
-    <string id="aahDesc">activity-helper-01</string>
-    <string id="aahDescGraph">activity-helper-02</string>
-    <string id="aahDescDist">activity-helper-03</string>
+    <string id="aahDesc">a-helper-01</string>
+    <string id="aahDescGraph">a-helper-02</string>
+    <string id="aahDescDist">a-helper-03</string>
     
     
     <!-- Setting / Property strings -->

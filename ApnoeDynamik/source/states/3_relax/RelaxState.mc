@@ -9,7 +9,6 @@ class RelaxState extends State {
 		
 		State.initialize();
 
-		appActivityHelper.diveActive.save(1);
 		appActivityHelper.addLap();
 		appActivityHelper.description.save(WatchUi.loadResource(Rez.Strings.phase3) + (currentTrainingSession.round + 1));
 		appActivityHelper.diveActive.save(0);
