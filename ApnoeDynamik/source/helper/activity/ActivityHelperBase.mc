@@ -6,15 +6,20 @@ class ActivityHelperBase {
 
 	static const MAX_NB_CHARS_FOR_STRINGS = 16;
 
-	static var session;
-	
+	static var session;	
 		
-	static var fields;
+	var fields;
+	var activityType;
+	var activitySubType;
+	
+	
 	
 	// See https://developer.garmin.com/connect-iq/api-docs/Toybox/ActivityRecording.html for possible types
 	// Example: ActivityRecording.SPORT_SWIMMING and ActivityRecording.SUB_SPORT_GENERIC
-	function initialize(_fields, activityType, activitySubType) {
+	function initialize(_fields, _activityType, _activitySubType) {
 		fields = _fields;
+		activityType = _activityType;
+		activitySubType = _activitySubType;
 	}
 
     function startRecording() {
@@ -26,8 +31,8 @@ class ActivityHelperBase {
             	session = ActivityRecording.createSession(            // set up recording session
                 	{
                     	:name=> activityname,                           // set session name
-                        :sport=> ActivityRecording.SPORT_SWIMMING,       // set sport type
-                        :subSport=> ActivityRecording.SUB_SPORT_GENERIC // set sub sport type
+                        :sport=> activityType,       // set sport type
+                        :subSport=> activitySubType  // set sub sport type
                     }
                 );
                 

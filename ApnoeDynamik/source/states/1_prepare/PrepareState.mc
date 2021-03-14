@@ -30,7 +30,7 @@ class PrepareState extends State {
     	
     	
     	appActivityHelper.startRecording();
-    	appActivityHelper.distance.save(currentTraining.distance);
+    	appActivityHelper.distance.save(currentTraining.distance * 100); // ToDo  move * 100 to AcitivityHelper
     	appActivityHelper.description.save(WatchUi.loadResource(Rez.Strings.phase1));
 	}
 		

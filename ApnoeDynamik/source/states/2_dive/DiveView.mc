@@ -4,7 +4,7 @@ using Toybox.WatchUi;
 class DiveView extends MainLayoutView {
 
 	const DISPLAY_GO_DURATION = 3; // Anzeige des "GO" nach Countown in sec.
-	const DIVE = "test2"; //WatchUi.loadResource(Rez.Strings.phase2); TODOmax
+	const DIVE = WatchUi.loadResource(Rez.Strings.phase2);
 	const UPDATE_INTERVALL = 1000;  // Update every second.
 	
 	var stateStartedAt;

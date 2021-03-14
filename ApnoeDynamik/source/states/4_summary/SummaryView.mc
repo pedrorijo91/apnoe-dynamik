@@ -4,7 +4,8 @@ using Toybox.Graphics;
 
 class SummaryView  extends WatchUi.View {
 
-	const SUMMARY = "Test4"; //WatchUi.loadResource(Rez.Strings.phase4); TODOmax
+	const SUMMARY = WatchUi.loadResource(Rez.Strings.phase4);
+	const DIVE = WatchUi.loadResource(Rez.Strings.phase2);
 
 	hidden var currentlyDisplayedDive = 0;
 	hidden var numberOfSavedDiveTimes;
@@ -46,15 +47,14 @@ class SummaryView  extends WatchUi.View {
         textFeldMode = View.findDrawableById("modusId");
         textFeldMode.setText(SUMMARY);		
 		
-		var textFeldDiveTime; // TODO -  Zeit der angezeigten Phase
+		var textFeldDiveTime;
         textFeldDiveTime = View.findDrawableById("zeitId");
         textFeldDiveTime.setText(TextHelper.msTimeToDisplayText(currentDiveTime));
         debug("Current dive time: " + currentDiveTime);
 
 		var textFeldInfo;
         textFeldInfo = View.findDrawableById("infoId");
-        textFeldInfo.setText("Phase"); // TODO - Name der angezeigten Phase
-		
+        textFeldInfo.setText(DIVE + " " + (currentlyDisplayedDive + 1));
 	   	
 		WatchUi.View.onUpdate(dc);
 		

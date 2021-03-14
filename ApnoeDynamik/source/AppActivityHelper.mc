@@ -34,5 +34,6 @@ class AppActivityHelper extends ActivityHelperBase {
 		description = new ActivityField(1, FIELD_DESC, FitContributor.DATA_TYPE_STRING, FitContributor.MESG_TYPE_LAP, null);
 		
 		ActivityHelperBase.initialize([ diveActive, distance, description ], ActivityRecording.SPORT_SWIMMING, ActivityRecording.SUB_SPORT_GENERIC);
+		//ActivityHelperBase.initialize([ diveActive, distance, description ], ActivityRecording.SPORT_GENERIC, ActivityRecording.SUB_SPORT_GENERIC);
 	}
 }

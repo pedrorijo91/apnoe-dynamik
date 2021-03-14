@@ -3,7 +3,7 @@ using Toybox.Math;
 
 class PrepareView extends CountdownView {
 
-	const PREPARE = "Test1"; //WatchUi.loadResource(Rez.Strings.phase1); TODOmax
+	const PREPARE = WatchUi.loadResource(Rez.Strings.phase1);
 
 	var multiBeepTimer;
 
@@ -19,7 +19,6 @@ class PrepareView extends CountdownView {
     	var remainingTime = countdown.remainingTime();
     	var remainingSeconds = Math.round(remainingTime / 1000.0).toNumber();
     	
-    	// TODOMAX (MK2 verwenden.)
     	if (remainingSeconds == 30 || remainingSeconds == 20) {
     	
     		AttentionHelper.multiBeep([
