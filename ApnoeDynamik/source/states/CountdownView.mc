@@ -5,10 +5,11 @@ class CountdownView extends MainLayoutView {
 
 	var mode;
 	var countdown;
+	var showRound;
 	
-    function initialize(_mode, _countdown) {
+    function initialize(_mode, _showRound, _countdown) {
     	mode = _mode;
-    	
+    	showRound = _showRound;
     	countdown = _countdown;
     	
     	MainLayoutView.initialize();
@@ -42,7 +43,11 @@ class CountdownView extends MainLayoutView {
     	var currentRound = currentTrainingSession.round;
     	var totalRounds = currentTraining.rounds();
     	
-   	    setModeTextWithRoundNr(mode);
+    	if (showRound) {
+   	    	setModeTextWithRoundNr(mode);
+   	    } else {
+   	    	setModeText(mode);
+   	    }
    		setTimeText(remainingTime);
     	
     	// Call the parent onUpdate function to redraw the layout

@@ -8,7 +8,7 @@ class PrepareView extends CountdownView {
 	var multiBeepTimer;
 
     function initialize(_countdown) {
-    	CountdownView.initialize(PREPARE, _countdown);
+    	CountdownView.initialize(PREPARE, false, _countdown);
     }
 
     

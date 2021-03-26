@@ -7,8 +7,8 @@ class SummaryState extends State {
 		
 		State.initialize();
 
-		appActivityHelper.addLap();
-		appActivityHelper.description.save("Enter summary"); // ToDo Max resources...
+		appActivityHelper.addLap(); // erstellt eine "debug lap" damit in der Garmin online Auswertung der letzte Tauchgang-Name angezeigt wird.
+		appActivityHelper.description.save(WatchUi.loadResource(Rez.Strings.descriptionDebugLap)); // setzt einen Namen für die "debug lap" falls einmal doch der letzte Name angezeit werden sollte.
 		appActivityHelper.stopRecording();
 				
 		var summaryView = new SummaryView();
