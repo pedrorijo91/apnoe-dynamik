@@ -76,13 +76,12 @@ class MainLayoutView extends AutoUpdateView {
 	        }
         }
        
-       	var distance = currentTraining.distance;
-       	
        	var textFeldInfo;
 		textFeldInfo = View.findDrawableById("infoId");
         var mSuffix = WatchUi.loadResource(Rez.Strings.meterSuffix);
         var dtPrefix = WatchUi.loadResource(Rez.Strings.lastDivePrefix);
-        if (lastDiveTime <= 0 ) {
+        if (lastDiveTime <= 0 && currentTraining != null) {
+            var distance = currentTraining.distance;
             textFeldInfo.setText( "" + distance + mSuffix );
         } else {
             textFeldInfo.setText(dtPrefix + " " + TextHelper.msTimeToDisplayText(lastDiveTime));

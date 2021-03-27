@@ -1,7 +1,7 @@
 using Toybox.System; //max
 
 // The current training session will always be accessible with this variable.
-// currentTrainingSession is initialized by the HomeState.
+// currentTrainingSession is initialized by the PrepareState.
 // All other states modify values inside the TrainingSession object.
 var currentTrainingSession;
 
