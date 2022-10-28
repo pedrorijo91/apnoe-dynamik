@@ -2,7 +2,7 @@ using Toybox.WatchUi;
 
 class AppView extends WatchUi.View {
 
-	function initialize() {
+    function initialize() {
         View.initialize();
     }
 
@@ -15,10 +15,11 @@ class AppView extends WatchUi.View {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() {
-       	debug("AppView started.  Will now switch to Home state.");
-    
-    	// Switch to homeState by calling the initialize function of HomeState.
-    	var homeState = new HomeState();
+           debug("AppView started.  Will now switch to Home state.");
+
+        // Switch to homeState by calling the initialize function of HomeState.
+        var homeState = new HomeState();  // TODO/FIXME reenable!!!!
+        //var sensorState = new SensorState();
     }
 
     // Update the view

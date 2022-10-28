@@ -1,6 +1,6 @@
 using Toybox.Time;
 
-class HomeDelegate extends DelegateBase {
+class SensorDelegate extends DelegateBase {
 
     var state;
 

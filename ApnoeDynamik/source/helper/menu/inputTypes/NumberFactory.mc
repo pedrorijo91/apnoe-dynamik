@@ -30,10 +30,10 @@ class NumberFactory extends WatchUi.PickerFactory {
         }
 
         if (options != null && options.get(:formatString) != null) {
-        	mFormatString = options.get(:formatString);
+            mFormatString = options.get(:formatString);
         } else {
-        	// Default is to display number as two digits (with leading 0 if necessary)
-	        mFormatString = "%02d";
+            // Default is to display number as two digits (with leading 0 if necessary)
+            mFormatString = "%02d";
         }
     }
 

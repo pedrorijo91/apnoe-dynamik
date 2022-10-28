@@ -15,31 +15,31 @@
     <string id="lastDivePrefix">last dive</string>
     <string id="secSuffix">sec.</string>
     <string id="roundsSuffix">rounds</string>
-    
-    
+
+
     <string id="saveActivityQuestion">save activity?</string>
-	<string id="descriptionDebugLap">debug lap</string>
-    
+    <string id="descriptionDebugLap">debug lap</string>
+
     <!-- Fit contributor strings (alle Texte dürfen nur 15 Zeichen haben!)-->
-    <string id="fitTitleGraph">diving phases</string>	<!-- phaseChartTitle -->
+    <string id="fitTitleGraph">diving phases</string>    <!-- phaseChartTitle -->
     <string id="fitDataGraph">dataGraph</string>
-    <string id="fitUnitGraph">1=dive/0=relax</string>	<!-- dive (if 1) -->
-    
-    
+    <string id="fitUnitGraph">1=dive/0=relax</string>    <!-- dive (if 1) -->
+
+
     <string id="fitDistanceDataSumm">distance</string>
-    <string id="fitDistanceUnitSumm">m</string>    
- 
- 	<string id="fitDataLap">phase name</string>
- 	<string id="fitUnitLap">unitLap</string> 	<!-- nur Platzhalter -->
- 
- 
- 
+    <string id="fitDistanceUnitSumm">m</string>
+
+     <string id="fitDataLap">phase name</string>
+     <string id="fitUnitLap">unitLap</string>     <!-- nur Platzhalter -->
+
+
+
     <!-- App Activity Helper --> <!-- probably in Fit-data file -->
     <string id="aahDesc">a-helper-01</string> <!-- nur Platzhalter -->
     <string id="aahDescGraph">a-helper-02</string> <!-- nur Platzhalter -->
     <string id="aahDescDist">a-helper-03</string> <!-- nur Platzhalter -->
-    
-    
+
+
     <!-- Setting / Property strings -->
     <string id="settingmenutitel">settings</string>
 
@@ -50,17 +50,17 @@
     <string id="propRelaxReduce">recreation reduction</string>
     <string id="propAdjustInterval">reduction interval</string>
     <string id="propLastRelax">last recreation</string>
-    
-    <string id="propLastRelaxError">Warning: last recreation time is below zero!</string>   
-        
+
+    <string id="propLastRelaxError">Warning: last recreation time is below zero!</string>
+
     <string id="propAlarmBeep">alarm beep</string>
     <string id="propAlarmVibrate">alarm vibrate</string>
-    
-	<string id="interfal1MenuText">every recreation</string>
-	<string id="interfal2MenuText">every 2nd recreation</string>
-	<string id="interfal3MenuText">every 3rd recreation</string>
+
+    <string id="interfal1MenuText">every recreation</string>
+    <string id="interfal2MenuText">every 2nd recreation</string>
+    <string id="interfal3MenuText">every 3rd recreation</string>
 
     <string id="timePickerTitle">phase</string>
     <string id="timeSeparator">phase</string>
-    
+
 </strings>

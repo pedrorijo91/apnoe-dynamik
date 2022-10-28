@@ -2,52 +2,52 @@ using Toybox.WatchUi;
 
 class RelaxState extends State {
 
-	var countdown;
+    var countdown;
 
-	function initialize() {
-	   	debug("Switching to Relax State.");
-		
-		State.initialize();
+    function initialize() {
+           debug("Switching to Relax State.");
 
-		appActivityHelper.addLap();
-		appActivityHelper.description.save(WatchUi.loadResource(Rez.Strings.phase3) + (currentTrainingSession.round + 1));
-		appActivityHelper.diveActive.save(0);
-		
+        State.initialize();
 
-		var relaxDuration = currentTraining.prepareAndRelaxDurations[currentTrainingSession.round];
-		countdown = new Countdown(self, relaxDuration);
-		
-		WatchUi.switchToView(
-			new RelaxView(countdown),
-			new RelaxDelegate(self),
-			WatchUi.SLIDE_IMMEDIATE);
-	}
+        appActivityHelper.addLap();
+        appActivityHelper.description.save(WatchUi.loadResource(Rez.Strings.phase3) + (currentTrainingSession.round + 1));
+        appActivityHelper.diveActive.save(0);
 
-		
-	function onStateLeave() {
-		countdown.stop();
-	}
 
-	
-	function timeExpired() {
-		switchToDive();
-	}
-	
-		
-	function togglePause() {
-		countdown.togglePause();
-	}
-	
-	    
-    function switchToDive() {
-    	debug("switchToDive");
+        var relaxDuration = currentTraining.prepareAndRelaxDurations[currentTrainingSession.round];
+        countdown = new Countdown(self, relaxDuration);
 
-   		var newState = new DiveState();
+        WatchUi.switchToView(
+            new RelaxView(countdown),
+            new RelaxDelegate(self),
+            WatchUi.SLIDE_IMMEDIATE);
     }
-    
+
+
+    function onStateLeave() {
+        countdown.stop();
+    }
+
+
+    function timeExpired() {
+        switchToDive();
+    }
+
+
+    function togglePause() {
+        countdown.togglePause();
+    }
+
+
+    function switchToDive() {
+        debug("switchToDive");
+
+           var newState = new DiveState();
+    }
+
     function switchToSummary() {
-    	debug("switchToSummary");
-    	
-    	var newState = new SummaryState();
+        debug("switchToSummary");
+
+        var newState = new SummaryState();
     }
 }

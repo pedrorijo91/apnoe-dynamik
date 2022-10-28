@@ -1,6 +1,6 @@
 class AppDelegate extends DelegateBase {
 
-	function initialize() {
-		DelegateBase.initialize();
-	}
+    function initialize() {
+        DelegateBase.initialize();
+    }
 }

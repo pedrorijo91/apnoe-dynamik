@@ -2,17 +2,17 @@
 
 <!-- https://developer.garmin.com/connect-iq/core-topics/activity-recording/ -->
 
-	<!-- graph (record) fields -->
-	<fitField id="0" displayInChart="true" sortOrder="0" precision="0" chartTitle="@Strings.fitTitleGraph" dataLabel="@Strings.fitDataGraph" unitLabel="@Strings.fitUnitGraph" fillColor="#0000FF" />
-
-	
-	<!-- summary (session) fields -->
-	<fitField id="1" displayInActivitySummary="true" sortOrder="2" precision="0" dataLabel="@Strings.fitDistanceDataSumm" unitLabel="@Strings.fitDistanceUnitSumm" />
+    <!-- graph (record) fields -->
+    <fitField id="0" displayInChart="true" sortOrder="0" precision="0" chartTitle="@Strings.fitTitleGraph" dataLabel="@Strings.fitDataGraph" unitLabel="@Strings.fitUnitGraph" fillColor="#0000FF" />
 
 
-	<!-- laps (lap) fields fields -->
-	
-	<!-- "DIVE 1",... lap data -->
-	<fitField id="2" displayInActivityLaps="true" sortOrder="1" precision="0" dataLabel="@Strings.fitDataLap" unitLabel="@Strings.fitUnitLap" />
+    <!-- summary (session) fields -->
+    <fitField id="1" displayInActivitySummary="true" sortOrder="2" precision="0" dataLabel="@Strings.fitDistanceDataSumm" unitLabel="@Strings.fitDistanceUnitSumm" />
+
+
+    <!-- laps (lap) fields fields -->
+
+    <!-- "DIVE 1",... lap data -->
+    <fitField id="2" displayInActivityLaps="true" sortOrder="1" precision="0" dataLabel="@Strings.fitDataLap" unitLabel="@Strings.fitUnitLap" />
 
 </fitContributions>

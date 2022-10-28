@@ -1,0 +1,66 @@
+<strings>
+    <string id="AppName">Apnoe Dynamik</string>
+
+    <string id="prompt">Menüknopf drücken</string>
+
+    <string id="phase0">DYNAMIK</string>
+    <string id="phase1">VORBEREIT.</string>
+    <string id="phase2">TAUCHEN</string>
+    <string id="phase3">RELAX</string>
+    <string id="phase4">RÜCKBLICK</string>
+
+    <!-- Prefix and Suffix strings -->
+    <string id="heartRatePrefix">hr</string>
+    <string id="meterSuffix">m</string>
+    <string id="lastDivePrefix">letzt TG</string>
+    <string id="secSuffix">sek.</string>
+    <string id="roundsSuffix">Runden</string>
+
+
+    <string id="saveActivityQuestion">speichern?</string>
+    <string id="descriptionDebugLap">debug Runde</string>
+
+    <!-- Fit contributor strings (alle Texte dürfen nur 15 Zeichen haben!)-->
+    <string id="fitTitleGraph">Tauchphasen</string>    <!-- phaseChartTitle -->
+    <string id="fitDataGraph">Datengraphik</string>
+    <string id="fitUnitGraph">1=dive/0=relax</string>    <!-- dive (if 1) -->
+
+
+    <string id="fitDistanceDataSumm">Distanz</string>
+    <string id="fitDistanceUnitSumm">m</string>
+
+     <string id="fitDataLap">Phasenname</string>
+     <string id="fitUnitLap">Rundeneinheit</string>     <!-- nur Platzhalter -->
+
+
+
+    <!-- App Activity Helper --> <!-- probably in Fit-data file -->
+    <string id="aahDesc">a-helper-01</string> <!-- nur Platzhalter -->
+    <string id="aahDescGraph">a-helper-02</string> <!-- nur Platzhalter -->
+    <string id="aahDescDist">a-helper-03</string> <!-- nur Platzhalter -->
+
+
+    <!-- Setting / Property strings -->
+    <string id="settingmenutitel">Einstellungen</string>
+
+    <string id="propDistance">Distanz</string>
+    <string id="propPrepare">Vorbereitungszeit</string>
+    <string id="propRounds">Rundenanzahl</string>
+    <string id="propFirstRelax">erste Erholung</string>
+    <string id="propRelaxReduce">Reduzierung Erholung</string>
+    <string id="propAdjustInterval">Reduzierungsintervall</string>
+    <string id="propLastRelax">letzte Erholung</string>
+
+    <string id="propLastRelaxError">Warnung: letzte Erholungzeit ist unter Null!</string>
+
+    <string id="propAlarmBeep">Ton Alarm</string>
+    <string id="propAlarmVibrate">Vibration Alarm</string>
+
+    <string id="interfal1MenuText">jede Erholung</string>
+    <string id="interfal2MenuText">jede zweite Erholung</string>
+    <string id="interfal3MenuText">jede dritte Erholung</string>
+
+    <string id="timePickerTitle">Phase</string>
+    <string id="timeSeparator">Phase</string>
+
+</strings>

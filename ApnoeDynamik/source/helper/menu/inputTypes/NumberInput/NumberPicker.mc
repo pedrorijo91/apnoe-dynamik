@@ -4,10 +4,15 @@ using Toybox.WatchUi;
 class NumberPicker extends WatchUi.Picker {
 
     function initialize(defaultNumber, min, max, unit, title) {
+        if (defaultNumber < min) {
+            defaultNumber = min;
+        } else if (defaultNumber > max) {
+            defaultNumber = max;
+        }
         var factories = [
             new NumberFactory(min, max, 1, {}),
             new WatchUi.Text({:text  => unit,
-            				  :font  => Graphics.FONT_LARGE,
+                              :font  => Graphics.FONT_LARGE,
                               :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
                               :locY  => WatchUi.LAYOUT_VALIGN_CENTER})
         ];

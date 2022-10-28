@@ -1,45 +1,45 @@
-<!-- Diese Werte verwendet die Uhr fürs Setting Menü. -->   
+<!-- Diese Werte verwendet die Uhr fürs Setting Menü. -->
 <!-- Ein <setting></setting> block verbindet einen String mit einer property, also wohin dieser Wert gespeichert werden soll. -->
 <!-- Diese Settings werden auch am Handy angezeigt. -->
-   
+
 
     <settings>
          <setting propertyKey="@Properties.propDistance" title="@Strings.propDistance">
-            <settingConfig type="numeric" />
+            <settingConfig type="numeric" required="true" min="1" max="999" />
         </setting>
-        
+
         <setting propertyKey="@Properties.propPrepare" title="@Strings.propPrepare">
-            <settingConfig type="numeric" />
+            <settingConfig type="numeric" required="true" min="0" max="3599" />
         </setting>
 
         <setting propertyKey="@Properties.propRounds" title="@Strings.propRounds">
-            <settingConfig type="numeric" />
+            <settingConfig type="numeric" required="true" min="1" max="99" />
         </setting>
-       
+
         <setting propertyKey="@Properties.propFirstRelax" title="@Strings.propFirstRelax">
-            <settingConfig type="numeric" />
+            <settingConfig type="numeric" required="true" min="0" max="3599" />
         </setting>
 
         <setting propertyKey="@Properties.propRelaxReduce" title="@Strings.propRelaxReduce">
-            <settingConfig type="numeric" />
+            <settingConfig type="numeric" required="true" min="0" max="59" />
         </setting>
 
         <setting propertyKey="@Properties.propAdjustInterval" title="@Strings.propAdjustInterval">
-            <settingConfig type="numeric" />
+            <settingConfig type="numeric" required="true" min="1" max="3" />
         </setting>
 
         <setting propertyKey="@Properties.propAlarmBeep" title="@Strings.propAlarmBeep">
-            <settingConfig type="boolean" />
+            <settingConfig type="boolean" required="true" />
         </setting>
-                
+
         <setting propertyKey="@Properties.propAlarmVibrate" title="@Strings.propAlarmVibrate">
-            <settingConfig type="boolean" />
+            <settingConfig type="boolean" required="true" />
         </setting>
-  
+
    <!--
         <setting propertyKey="@Properties.alarm" title="@Strings.alarm_title">
             <settingConfig type="boolean" />
         </setting>
-                
+
                 -->
     </settings>

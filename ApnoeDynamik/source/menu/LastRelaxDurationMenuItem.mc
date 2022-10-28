@@ -5,34 +5,34 @@ using Toybox.WatchUi;
 
 class LastRelaxDurationMenuItem extends  WatchUi.MenuItem  {
 
-	var listenFunction;
+    var listenFunction;
 
-	function initialize(label) {
-		WatchUi.MenuItem.initialize(label, lastRelaxDurationText(), :lastRelaxDurationMenuItem, {});
-		listenFunction = method(:updateSubLabel);
-		SettingsHelper.listenOnSettingsChanged(listenFunction);
-	}
-	
-	function updateSubLabel() {
-		debug("Update subLabel");
-		setSubLabel(lastRelaxDurationText());
-	}
+    function initialize(label) {
+        WatchUi.MenuItem.initialize(label, lastRelaxDurationText(), :lastRelaxDurationMenuItem, {});
+        listenFunction = method(:updateSubLabel);
+        SettingsHelper.listenOnSettingsChanged(listenFunction);
+    }
 
-	function lastRelaxDurationText() {
-		debug("Calculate last relax duration.");
+    function updateSubLabel() {
+        debug("Update subLabel");
+        setSubLabel(lastRelaxDurationText());
+    }
 
-		var rounds = SettingsHelper.get(Menu.PROP_ROUNDS).toFloat();
-		var rTime = Training.calculateSecondsDurationForRound(rounds);
-		
-		if (Training.hasRoundValidDuration(rounds)) {
-			return TextHelper.sTimeToDisplayText(rTime);
-		} else {
-			return TextHelper.sTimeToDisplayText(rTime) + WatchUi.loadResource(Rez.Strings.propLastRelaxError);
-		}
-	}
-	
-	function onMenuClose() {
-		debug("on menu close.  Stop listening");
-		SettingsHelper.stopListenOnSettingsChanged(listenFunction);
-	}
+    function lastRelaxDurationText() {
+        debug("Calculate last relax duration.");
+
+        var rounds = SettingsHelper.get(Menu.PROP_ROUNDS).toFloat();
+        var rTime = Training.calculateSecondsDurationForRound(rounds);
+
+        if (Training.hasRoundValidDuration(rounds)) {
+            return TextHelper.sTimeToDisplayText(rTime);
+        } else {
+            return TextHelper.sTimeToDisplayText(rTime) + WatchUi.loadResource(Rez.Strings.propLastRelaxError);
+        }
+    }
+
+    function onMenuClose() {
+        debug("on menu close.  Stop listening");
+        SettingsHelper.stopListenOnSettingsChanged(listenFunction);
+    }
 }

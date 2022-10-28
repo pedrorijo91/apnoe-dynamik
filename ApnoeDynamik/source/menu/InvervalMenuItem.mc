@@ -4,18 +4,18 @@ using Toybox.WatchUi;
 // => not in helpers directory.
 
 class IntervalMenuItem extends NumberMenuItem {
-	function initialize(label, propertyId) {
-		NumberMenuItem.initialize(label, 1, 3, "", propertyId);
-	}
-	
+    function initialize(label, propertyId) {
+        NumberMenuItem.initialize(label, 1, 3, "", propertyId);
+    }
 
-	function toSubLabel(value) {
-		switch(value) {
-			case 1: return WatchUi.loadResource(Rez.Strings.interfal1MenuText);
-			case 2: return WatchUi.loadResource(Rez.Strings.interfal2MenuText);
-			case 3: return WatchUi.loadResource(Rez.Strings.interfal3MenuText);
-			default: return "" + value;
-		}
-	}
+
+    function toSubLabel(value) {
+        switch(value) {
+            case 1: return WatchUi.loadResource(Rez.Strings.interfal1MenuText);
+            case 2: return WatchUi.loadResource(Rez.Strings.interfal2MenuText);
+            case 3: return WatchUi.loadResource(Rez.Strings.interfal3MenuText);
+            default: return "?" + value;
+        }
+    }
 
 }

@@ -1,32 +1,32 @@
 
 class SummaryDelegate extends DelegateBase {
 
-	var state;
-	var view;
-	
-	function initialize(_state, _view) {
-		state = _state;
-		view = _view;
-		DelegateBase.initialize();
-	}
-		
-	function onNextPage() {
-		view.nextDiveTime();
-		return true;
-	}
+    var state;
+    var view;
 
-	function onPreviousPage() {
-		view.previousDiveTime();
-		return true;
-	}
-	
-	function onSelect() {
-		state.save();
-		return true;
-	}
-	
-	function onBack() {
-		state.askSave();
-		return true;
-	}
+    function initialize(_state, _view) {
+        state = _state;
+        view = _view;
+        DelegateBase.initialize();
+    }
+
+    function onNextPage() {
+        view.nextDiveTime();
+        return true;
+    }
+
+    function onPreviousPage() {
+        view.previousDiveTime();
+        return true;
+    }
+
+    function onSelect() {
+        state.save();
+        return true;
+    }
+
+    function onBack() {
+        state.askSave();
+        return true;
+    }
 }
